@@ -1,0 +1,32 @@
+{
+  "name": "@react/flex",
+  "version": "0.0.1",
+  "description": "React implementation of CSS Flexbox layout",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist/*",
+    "test": "jest --coverage",
+    "test-watch": "jest \"/*.ts\" --watchAll",
+    "test-watch-all": "jest --watchAll",
+    "test-coverage": "yarn test && cat ./coverage/lcov.info | coveralls",
+    "lint": "tsc --noEmit && eslint '*/**/*.{js,ts}' --quiet --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bikk-uk/react-flex.git"
+  },
+  "keywords": [
+    "jest",
+    "mock",
+    "express"
+  ],
+  "author": "bikk-uk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bikk-uk/react-flex/issues"
+  },
+  "homepage": "https://github.com/bikk-uk/react-flex#readme",
+  "devDependencies": {}
+}
