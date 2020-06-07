@@ -1,0 +1,56 @@
+{
+  "compilerOptions": {
+    // target latest version of ECMAScript
+    "target": "esnext",
+
+    // module code generation
+    "module": "esnext",
+
+    // where to output the files
+    "outDir": "dist",
+
+    // strip out general comments
+    "removeComments": true,
+
+    // generate corresponding .d.ts files
+    "declaration": true,
+
+    // Search under node_modules for non-relative imports
+    "moduleResolution": "node",
+
+    // process & infer types from .js files
+    "allowJs": true,
+    "checkJs": true,
+
+    // don't emit, allow Babel to transform files
+    "noEmit": true,
+
+    // import non-ES modules as default imports
+    "esModuleInterop": true,
+
+    // use typescript to transpile jsx to js
+    "jsx": "react",
+
+    // resolve non-relative module names
+    "baseUrl": "src",
+
+    // enforcing style and checking
+    "strict": true,
+    "allowUnreachableCode": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // allow the use of JSON files
+    "resolveJsonModule": true,
+
+    // print name of files and generated files
+    "listEmittedFiles": true,
+
+    // add some style to errors and messages
+    "pretty": true
+  },
+  "include": ["src"]
+}
