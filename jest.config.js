@@ -1,4 +1,5 @@
 module.exports = {
   preset: 'ts-jest',
-  coveragePathIgnorePatterns: ['<rootDir>/node_modules/'],
+  testPathIgnorePatterns: ['/node_modules/', '/dist/'],
+  coveragePathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/dist/'],
 }
