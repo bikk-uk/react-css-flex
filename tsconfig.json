@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
     // target latest version of ECMAScript
-    "target": "esnext",
+    "target": "ES2018",
 
     // module code generation
-    "module": "esnext",
+    "module": "CommonJS",
 
     // where to output the files
     "outDir": "dist",
