@@ -22,9 +22,6 @@
     "allowJs": true,
     "checkJs": true,
 
-    // don't emit, allow Babel to transform files
-    "noEmit": true,
-
     // import non-ES modules as default imports
     "esModuleInterop": true,
 
@@ -52,5 +49,5 @@
     // add some style to errors and messages
     "pretty": true
   },
-  "include": ["src"]
+  "include": ["src", "index.ts"]
 }
