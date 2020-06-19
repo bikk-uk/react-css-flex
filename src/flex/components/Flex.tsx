@@ -145,7 +145,6 @@ function Flex({
   ])
 
   const parseFlexFlow = React.useCallback(() => {
-    // the manual version has been provided, that takes precedence
     return flow ? { flexFlow: flow } : {}
   }, [flow])
 
