@@ -1,6 +1,6 @@
 {
   "name": "@react-css/flex",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A thin wrapper to help make CSS Flexbox simpler, more expressive, and quicker to use",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
