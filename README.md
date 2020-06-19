@@ -1,6 +1,6 @@
 # @react-css/flex
 
-A thin wrapper to help make CSS Flexbox simpler, more expressive, and faster to use
+A thin wrapper to help make CSS Flexbox simpler, more expressive, and quicker to use
 
 [![Build Status](https://travis-ci.org/bikk-uk/react-css-flex.svg?branch=master)](https://travis-ci.org/bikk-uk/react-css-flex)
 [![Coverage Status](https://coveralls.io/repos/github/bikk-uk/react-css-flex/badge.svg?branch=master)](https://coveralls.io/github/bikk-uk/react-css-flex?branch=master)
