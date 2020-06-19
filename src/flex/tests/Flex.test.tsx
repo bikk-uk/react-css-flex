@@ -73,6 +73,18 @@ describe('<Flex /> - General', () => {
   })
 })
 
+describe('<Flex /> - Inline', () => {
+  it('renders an empty flex container', async () => {
+    const component = <Flex inline />
+    const snapshot = `
+<div
+  style="display: inline-flex;"
+/>
+`
+    matchesSnapshot(component, snapshot)
+  })
+})
+
 describe('<Flex /> - flex-direction', () => {
   it('allows the flex-direction row to be set', async () => {
     const component = <Flex row />
