@@ -18,7 +18,7 @@ import Flex from '@react-css/flex'
 
 ## Usage
 
-All components are simply `<div />`s with all the usual props fully exposed.
+All components are `<div />`s with all the usual React props fully exposed.
 
 ### Flex
 
@@ -32,7 +32,7 @@ In its simplest form, to get a basic Flexbox:
 
 #### Inline
 
-For an inline Flexbox with `display: inline-flex;`:
+For an inline Flexbox:
 
 ```tsx
 <Flex inline>
@@ -42,7 +42,7 @@ For an inline Flexbox with `display: inline-flex;`:
 
 #### Flex Direction
 
-To modify `flex-direction`, the typed prop is simply exposed with the default `React.CSSProperties` types.
+To modify `flex-direction`, the typed prop is exposed with the default `React.CSSProperties` types.
 
 ```tsx
 <Flex flexDirection='row'>
@@ -63,7 +63,7 @@ _These are first come first served, in this order. They will be ignored if you p
 
 #### Flex Wrap
 
-To modify `flex-wrap`, the typed prop is simply exposed with the default `React.CSSProperties` types.
+To modify `flex-wrap`, the typed prop is exposed with the default `React.CSSProperties` types.
 
 ```tsx
 <Flex flexWrap='nowrap'>
@@ -83,7 +83,7 @@ _These are first come first served, in this order. They will be ignored if you p
 
 #### Justify Content
 
-To modify `justify-content`, the typed prop is simply exposed with the default `React.CSSProperties` types.
+To modify `justify-content`, the typed prop is exposed with the default `React.CSSProperties` types.
 
 ```tsx
 <Flex justifyContent='center'>
@@ -105,7 +105,7 @@ _These are first come first served, in this order. They will be ignored if you p
 
 #### Align Items
 
-To modify `align-items`, the typed prop is simply exposed with the default `React.CSSProperties` types.
+To modify `align-items`, the typed prop is exposed with the default `React.CSSProperties` types.
 
 ```tsx
 <Flex alignItems='baseline'>
@@ -127,7 +127,7 @@ _These are first come first served, in this order. They will be ignored if you p
 
 #### Align Content
 
-To modify `align-content`, the typed prop is simply exposed with the default `React.CSSProperties` types.
+To modify `align-content`, the typed prop is exposed with the default `React.CSSProperties` types.
 
 ```tsx
 <Flex alignContent='flex-end'>
@@ -146,11 +146,11 @@ To keep it cleaner you can use:
 <Flex alignContentStretch></Flex> // align-content: stretch;
 ```
 
-_These are first come first served, in this order. They will be ignored if you provide it manually via the `alignItems='center'` prop._
+_These are first come first served, in this order. They will be ignored if you provide it manually via the `alignContent='flex-end'` prop._
 
 #### Flex Flow (Shorthand)
 
-To modify `flex-flow`, the typed prop is simply exposed with the default `React.CSSProperties` types. The React types (or underlying [csstype](https://www.npmjs.com/package/csstype) package) unfortunately add very little type support for this.
+To modify `flex-flow`, the typed prop is exposed with the default `React.CSSProperties` types. The React types (or underlying [csstype](https://www.npmjs.com/package/csstype) package) unfortunately adds very little type support for this value.
 
 ```tsx
 <Flex flow='row nowrap'>
@@ -173,7 +173,7 @@ To help with laying out your components, a Flex Item is also available.
 </Flex>
 ```
 
-_**Note**: At this time `<Flex.Item />` is purely syntactic sugar, available to make the structure of the component clearer. It will behave (and is) just like a `<div />` with all the typed properties. Development is ongoing to add support for the Flex Item properties. For now you can just apply them via standard React styles:_
+_**Note**: At this time `<Flex.Item />` is purely syntactic sugar, available to make the structure of the component clearer. It will behave like (and is) a `<div />` with all the typed properties. Development is ongoing to add support for the Flex Item properties. For now you can just apply them via standard React styles:_
 
 ```tsx
 <Flex>
@@ -188,7 +188,7 @@ _**Note**: At this time `<Flex.Item />` is purely syntactic sugar, available to 
 
 ## Notes
 
-All the React `div` props and TypeScript types are exposed. This allows for complete control whilst being able to ignore any Flexbox related CSS.
+All the React `div` props and TypeScript types are exposed/passed through. This allows for complete control whilst being able to ignore any Flexbox related CSS.
 
 ```tsx
 <Flex
@@ -200,7 +200,7 @@ All the React `div` props and TypeScript types are exposed. This allows for comp
 </Flex>
 ```
 
-CSS provided via `styles` is applied last, this allows all generated CSS to be overridden.
+CSS provided via `styles` will be applied last, this allows all generated CSS to be overridden.
 
 ```tsx
 <Flex
