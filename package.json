@@ -1,7 +1,7 @@
 {
   "name": "@react-css/flex",
   "version": "0.0.1",
-  "description": "React implementation of CSS Flexbox layout",
+  "description": "A thin wrapper to help make CSS Flexbox simpler, more expressive, and quicker to use",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -9,7 +9,7 @@
     "test-watch": "jest --watch",
     "test-watch-all": "jest --watchAll",
     "test-coverage": "yarn test && cat ./coverage/lcov.info | coveralls",
-    "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+    "lint": "tsc --noEmit && eslint '*/**/*.{ts,tsx}' --quiet --fix",
     "build": "tsc",
     "clean": "rm -rf dist/*",
     "release": "yarn && yarn clean && yarn build && yarn test"
@@ -24,7 +24,12 @@
     "css",
     "layout",
     "flex",
-    "flexbox"
+    "flexbox",
+    "flexible",
+    "box",
+    "styles",
+    "simpler",
+    "expressive"
   ],
   "author": "bikk-uk",
   "license": "MIT",
@@ -48,10 +53,12 @@
     "babel-loader": "^8.1.0",
     "coveralls": "^3.1.0",
     "css-loader": "^3.5.3",
+    "csstype": "^2.6.10",
     "eslint": "^7.2.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.0.4",
     "html-webpack-plugin": "^4.3.0",
     "jest": "^26.0.1",
     "prettier": "^2.0.5",
