@@ -146,21 +146,21 @@ describe('<Flex /> - flex-wrap', () => {
     matchesSnapshot(component, snapshot)
   })
 
-  it('allows the flex-wrap wrap-reverse to be set', async () => {
-    const component = <Flex wrapReverse />
-    const snapshot = `
-  <div
-    style="display: flex; flex-wrap: wrap-reverse;"
-  />
-  `
-    matchesSnapshot(component, snapshot)
-  })
-
   it('allows the flex-wrap nowrap to be set', async () => {
     const component = <Flex noWrap />
     const snapshot = `
   <div
     style="display: flex; flex-wrap: nowrap;"
+  />
+  `
+    matchesSnapshot(component, snapshot)
+  })
+
+  it('allows the flex-wrap wrap-reverse to be set', async () => {
+    const component = <Flex wrapReverse />
+    const snapshot = `
+  <div
+    style="display: flex; flex-wrap: wrap-reverse;"
   />
   `
     matchesSnapshot(component, snapshot)
