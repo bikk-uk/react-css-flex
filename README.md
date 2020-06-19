@@ -2,6 +2,13 @@
 
 A thin wrapper to help make CSS Flexbox simpler, more expressive, and faster to use
 
+[![Build Status](https://travis-ci.org/bikk-uk/react-css-flex.svg?branch=master)](https://travis-ci.org/bikk-uk/react-css-flex)
+[![Coverage Status](https://coveralls.io/repos/github/bikk-uk/react-css-flex/badge.svg?branch=master)](https://coveralls.io/github/bikk-uk/react-css-flex?branch=master)
+[![Known Vulnerabilities](https://snyk.io/test/github/bikk-uk/react-css-flex/badge.svg?targetFile=package.json)](https://snyk.io/test/github/bikk-uk/react-css-flex?targetFile=package.json)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/bikk-uk/react-css-flex?label=github)
+![npm](https://img.shields.io/npm/v/@react-css/flex)
+![NPM](https://img.shields.io/npm/l/@react-css/flex)
+
 ## Getting Started
 
 Installation:
