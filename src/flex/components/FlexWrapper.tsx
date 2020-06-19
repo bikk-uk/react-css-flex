@@ -2,7 +2,7 @@
 import React from 'react'
 
 // Props
-import type { Props as FlexProps } from './Flex'
+import type { FlexProps } from './index'
 
 // Components
 import Flex from './Flex'
