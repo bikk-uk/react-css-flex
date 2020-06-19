@@ -1,6 +1,6 @@
 # @react-css/flex
 
-A thin wrapper to help make CSS Flexbox simpler, more expressive, and easier to remember
+A thin wrapper to help make CSS Flexbox simpler, more expressive, and faster to use
 
 ## Getting Started
 
@@ -42,7 +42,7 @@ For an inline Flexbox with `display: inline-flex;`:
 
 #### Flex Direction
 
-To modify `flex-direction`, the typed prop is simply exposed with the standard `React.CSSProperties` types.
+To modify `flex-direction`, the typed prop is simply exposed with the default `React.CSSProperties` types.
 
 ```tsx
 <Flex flexDirection='row'>
@@ -63,7 +63,7 @@ _These are first come first served, in this order. They will be ignored if you p
 
 #### Flex Wrap
 
-To modify `flex-wrap`, the typed prop is simply exposed with the standard `React.CSSProperties` types.
+To modify `flex-wrap`, the typed prop is simply exposed with the default `React.CSSProperties` types.
 
 ```tsx
 <Flex flexWrap='nowrap'>
@@ -75,7 +75,7 @@ To keep it cleaner you can use:
 
 ```tsx
 <Flex wrap></Flex> // flex-wrap: wrap;
-<Flex noWrap></Flex> // flex-wrap: wrap-reverse;
+<Flex noWrap></Flex> // flex-wrap: nowrap;
 <Flex wrapReverse></Flex> // flex-wrap: wrap-reverse;
 ```
 
@@ -83,7 +83,7 @@ _These are first come first served, in this order. They will be ignored if you p
 
 #### Justify Content
 
-To modify `justify-content`, the typed prop is simply exposed with the standard `React.CSSProperties` types.
+To modify `justify-content`, the typed prop is simply exposed with the default `React.CSSProperties` types.
 
 ```tsx
 <Flex justifyContent='center'>
@@ -105,7 +105,7 @@ _These are first come first served, in this order. They will be ignored if you p
 
 #### Align Items
 
-To modify `align-items`, the typed prop is simply exposed with the standard `React.CSSProperties` types.
+To modify `align-items`, the typed prop is simply exposed with the default `React.CSSProperties` types.
 
 ```tsx
 <Flex alignItems='baseline'>
@@ -127,7 +127,7 @@ _These are first come first served, in this order. They will be ignored if you p
 
 #### Align Content
 
-To modify `align-content`, the typed prop is simply exposed with the standard `React.CSSProperties` types.
+To modify `align-content`, the typed prop is simply exposed with the default `React.CSSProperties` types.
 
 ```tsx
 <Flex alignContent='flex-end'>
@@ -150,7 +150,7 @@ _These are first come first served, in this order. They will be ignored if you p
 
 #### Flex Flow (Shorthand)
 
-To modify `flex-flow`, the typed prop is simply exposed with the standard `React.CSSProperties` types. The React types (or underlying [csstype](https://www.npmjs.com/package/csstype) package) unfortunately add very little type support for this.
+To modify `flex-flow`, the typed prop is simply exposed with the default `React.CSSProperties` types. The React types (or underlying [csstype](https://www.npmjs.com/package/csstype) package) unfortunately add very little type support for this.
 
 ```tsx
 <Flex flow='row nowrap'>
