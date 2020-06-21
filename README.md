@@ -1,6 +1,6 @@
 # @react-css/flex
 
-A thin wrapper to help make CSS Flexbox simpler, more expressive, and quicker to use
+A thin wrapper to help make CSS Flexbox simpler and more expressive
 
 [![Build Status](https://travis-ci.org/bikk-uk/react-css-flex.svg?branch=master)](https://travis-ci.org/bikk-uk/react-css-flex)
 [![Coverage Status](https://coveralls.io/repos/github/bikk-uk/react-css-flex/badge.svg?branch=master)](https://coveralls.io/github/bikk-uk/react-css-flex?branch=master)
@@ -13,9 +13,9 @@ A thin wrapper to help make CSS Flexbox simpler, more expressive, and quicker to
 
 Installation:
 
-`yarn add --dev @react-css/flex`
+`yarn add @react-css/flex`
 
-`npm install --save-dev @react-css/flex`
+`npm install @react-css/flex`
 
 Importing:
 
@@ -25,11 +25,11 @@ import Flex from '@react-css/flex'
 
 ## Usage
 
-All components are `<div />`s with all the usual React props fully exposed.
+All components are `<div />`s with the React props fully exposed.
 
 ### Flex
 
-In its simplest form, to get a basic Flexbox:
+To get a basic Flexbox:
 
 ```tsx
 <Flex>
@@ -49,7 +49,7 @@ For an inline Flexbox:
 
 #### Flex Direction
 
-To modify `flex-direction`, the typed prop is exposed with the default `React.CSSProperties` types.
+To modify `flex-direction` _(with `React.CSSProperties` types)_:
 
 ```tsx
 <Flex flexDirection='row'>
@@ -57,7 +57,7 @@ To modify `flex-direction`, the typed prop is exposed with the default `React.CS
 </Flex>
 ```
 
-To keep it cleaner you can use:
+To simplify, you can use:
 
 ```tsx
 <Flex row></Flex> // flex-direction: row;
@@ -66,11 +66,11 @@ To keep it cleaner you can use:
 <Flex columnReverse></Flex> // flex-direction: column-reverse;
 ```
 
-_These are first come first served, in this order. They will be ignored if you provide it manually via the `flexDirection='row'` prop._
+_These are first come first served, in this order. They will be ignored if you provide it manually via the full `flexDirection` prop._
 
 #### Flex Wrap
 
-To modify `flex-wrap`, the typed prop is exposed with the default `React.CSSProperties` types.
+To modify `flex-wrap` _(with `React.CSSProperties` types)_:
 
 ```tsx
 <Flex flexWrap='nowrap'>
@@ -78,7 +78,7 @@ To modify `flex-wrap`, the typed prop is exposed with the default `React.CSSProp
 </Flex>
 ```
 
-To keep it cleaner you can use:
+To simplify, you can use:
 
 ```tsx
 <Flex wrap></Flex> // flex-wrap: wrap;
@@ -86,11 +86,11 @@ To keep it cleaner you can use:
 <Flex wrapReverse></Flex> // flex-wrap: wrap-reverse;
 ```
 
-_These are first come first served, in this order. They will be ignored if you provide it manually via the `flexWrap='nowrap'` prop._
+_These are first come first served, in this order. They will be ignored if you provide it manually via the full `flexWrap` prop._
 
 #### Justify Content
 
-To modify `justify-content`, the typed prop is exposed with the default `React.CSSProperties` types.
+To modify `justify-content` _(with `React.CSSProperties` types)_:
 
 ```tsx
 <Flex justifyContent='center'>
@@ -98,7 +98,7 @@ To modify `justify-content`, the typed prop is exposed with the default `React.C
 </Flex>
 ```
 
-To keep it cleaner you can use:
+To simplify, you can use:
 
 ```tsx
 <Flex justifyStart></Flex> // justify-content: flex-start;
@@ -108,11 +108,11 @@ To keep it cleaner you can use:
 <Flex justifySpaceAround></Flex> // justify-content: space-around;
 ```
 
-_These are first come first served, in this order. They will be ignored if you provide it manually via the `justifyContent='center'` prop._
+_These are first come first served, in this order. They will be ignored if you provide it manually via the full `justifyContent` prop._
 
 #### Align Items
 
-To modify `align-items`, the typed prop is exposed with the default `React.CSSProperties` types.
+To modify `align-items` _(with `React.CSSProperties` types)_:
 
 ```tsx
 <Flex alignItems='baseline'>
@@ -120,7 +120,7 @@ To modify `align-items`, the typed prop is exposed with the default `React.CSSPr
 </Flex>
 ```
 
-To keep it cleaner you can use:
+To simplify, you can use:
 
 ```tsx
 <Flex alignItemsStart></Flex> // align-items: flex-start;
@@ -130,11 +130,11 @@ To keep it cleaner you can use:
 <Flex alignItemsStretch></Flex> // align-items: stretch;
 ```
 
-_These are first come first served, in this order. They will be ignored if you provide it manually via the `alignItems='baseline'` prop._
+_These are first come first served, in this order. They will be ignored if you provide it manually via the full `alignItems` prop._
 
 #### Align Content
 
-To modify `align-content`, the typed prop is exposed with the default `React.CSSProperties` types.
+To modify `align-content` _(with `React.CSSProperties` types)_:
 
 ```tsx
 <Flex alignContent='flex-end'>
@@ -142,7 +142,7 @@ To modify `align-content`, the typed prop is exposed with the default `React.CSS
 </Flex>
 ```
 
-To keep it cleaner you can use:
+To simplify, you can use:
 
 ```tsx
 <Flex alignContentStart></Flex> // align-content: flex-start;
@@ -153,17 +153,19 @@ To keep it cleaner you can use:
 <Flex alignContentStretch></Flex> // align-content: stretch;
 ```
 
-_These are first come first served, in this order. They will be ignored if you provide it manually via the `alignContent='flex-end'` prop._
+_These are first come first served, in this order. They will be ignored if you provide it manually via the full `alignContent` prop._
 
 #### Flex Flow (Shorthand)
 
-To modify `flex-flow`, the typed prop is exposed with the default `React.CSSProperties` types. The React types (or underlying [csstype](https://www.npmjs.com/package/csstype) package) unfortunately adds very little type support for this value.
+To modify `flex-direction` _(with `React.CSSProperties` types)_:
 
 ```tsx
 <Flex flow='row nowrap'>
   <MyComponent />
 </Flex>
 ```
+
+_The React TypeScript definitions (or underlying [csstype](https://www.npmjs.com/package/csstype) package) unfortunately adds very little type support for this value._
 
 ### Flex Items
 
@@ -180,7 +182,7 @@ To help with laying out your components, a Flex Item is also available.
 </Flex>
 ```
 
-_**Note**: At this time `<Flex.Item />` is purely syntactic sugar, available to make the structure of the component clearer. It will behave like (and is) a `<div />` with all the typed properties. Development is ongoing to add support for the Flex Item properties. For now you can just apply them via standard React styles:_
+_**Note**: At this time `<Flex.Item />` is purely syntactic sugar, available to make the structure of the component clearer. It will behave like (and is) a `<div />` with all the TypeScript definitions. Development is ongoing to add support for the Flex Item properties. For now you can just apply them via the usual React styles:_
 
 ```tsx
 <Flex>
@@ -195,7 +197,7 @@ _**Note**: At this time `<Flex.Item />` is purely syntactic sugar, available to 
 
 ## Notes
 
-All the React `div` props and TypeScript types are exposed/passed through. This allows for complete control whilst being able to ignore any Flexbox related CSS.
+All the React `div` props and TypeScript definitions are exposed/passed through. This allows for an identical development experience whilst being able to ignore any Flexbox related CSS.
 
 ```tsx
 <Flex
