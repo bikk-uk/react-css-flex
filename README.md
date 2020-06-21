@@ -157,7 +157,7 @@ _These are first come first served, in this order. They will be ignored if you p
 
 #### Flex Flow (Shorthand)
 
-To modify `flex-direction` _(with `React.CSSProperties` types)_:
+To modify `flex-flow` _(with `React.CSSProperties` types)_:
 
 ```tsx
 <Flex flow='row nowrap'>
