@@ -169,7 +169,7 @@ _The React TypeScript definitions (or underlying [csstype](https://www.npmjs.com
 
 ### Flex Items
 
-To help with laying out your components, a Flex Item is also available.
+To help with structuring your components, a Flex Item is also available.
 
 ```tsx
 <Flex column alignItemsCenter>
@@ -201,6 +201,7 @@ All the React `div` props and TypeScript definitions are exposed/passed through.
 
 ```tsx
 <Flex
+  column
   onMouseEnter={onMouseEnter}
   style={{
     background: 'red',
