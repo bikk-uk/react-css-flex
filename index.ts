@@ -1,9 +1,9 @@
 // Components
-import Flex from './src/flex/components/FlexWrapper'
+import Flex from './src/components/FlexWrapper'
 
 // Props
-import { FlexProps } from './src/flex/components'
-import { DivProps as FlexItemProps } from './src/flex'
+import { FlexProps } from './src/components'
+import { DivProps as FlexItemProps } from './src'
 
 export { Flex, FlexProps, FlexItemProps }
 

@@ -12,7 +12,7 @@
     "lint": "tsc --noEmit && eslint '*/**/*.{ts,tsx}' --quiet --fix",
     "build": "tsc",
     "clean": "rm -rf dist/*",
-    "release": "yarn && yarn clean && yarn build && yarn test"
+    "release": "yarn && yarn clean && yarn build && yarn test && yarn lint"
   },
   "repository": {
     "type": "git",
