@@ -61,7 +61,6 @@ function FlexItem({
     if (alignSelf) return { alignSelf }
     // see if a specific value has been provided, first come first serve
     let value: AlignSelfProperty | null = null
-
     if (alignSelfAuto) value = 'auto'
     else if (alignSelfStart) value = 'flex-start'
     else if (alignSelfEnd) value = 'flex-end'
