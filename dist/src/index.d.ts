@@ -1,65 +1,76 @@
 /// <reference types="react" />
-import {
-  FlexDirectionProperty,
-  FlexWrapProperty,
-  JustifyContentProperty,
-  AlignItemsProperty,
-  AlignContentProperty,
-  FlexFlowProperty,
-} from 'csstype'
-declare type DivProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
-interface DisplayProps {
-  inline?: boolean
+import { FlexDirectionProperty, FlexWrapProperty, JustifyContentProperty, AlignItemsProperty, AlignContentProperty, FlexFlowProperty, GlobalsNumber, FlexBasisProperty, FlexProperty, AlignSelfProperty } from 'csstype';
+declare type DivProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+interface DisplayCSS {
+    inline?: boolean;
 }
-interface FlexDirectionProps {
-  row?: boolean
-  rowReverse?: boolean
-  column?: boolean
-  columnReverse?: boolean
-  flexDirection?: FlexDirectionProperty
+interface FlexDirectionCSS {
+    row?: boolean;
+    rowReverse?: boolean;
+    column?: boolean;
+    columnReverse?: boolean;
+    flexDirection?: FlexDirectionProperty;
 }
-interface FlexWrapProps {
-  wrap?: boolean
-  noWrap?: boolean
-  wrapReverse?: boolean
-  flexWrap?: FlexWrapProperty
+interface FlexWrapCSS {
+    wrap?: boolean;
+    noWrap?: boolean;
+    wrapReverse?: boolean;
+    flexWrap?: FlexWrapProperty;
 }
-interface JustifyContentProps {
-  justifyStart?: boolean
-  justifyEnd?: boolean
-  justifyCenter?: boolean
-  justifySpaceBetween?: boolean
-  justifySpaceAround?: boolean
-  justifyContent?: JustifyContentProperty
+interface JustifyContentCSS {
+    justifyStart?: boolean;
+    justifyEnd?: boolean;
+    justifyCenter?: boolean;
+    justifySpaceBetween?: boolean;
+    justifySpaceAround?: boolean;
+    justifyContent?: JustifyContentProperty;
 }
-interface AlignItemsProps {
-  alignItemsStart?: boolean
-  alignItemsEnd?: boolean
-  alignItemsCenter?: boolean
-  alignItemsBaseline?: boolean
-  alignItemsStretch?: boolean
-  alignItems?: AlignItemsProperty
+interface AlignItemsCSS {
+    alignItemsStart?: boolean;
+    alignItemsEnd?: boolean;
+    alignItemsCenter?: boolean;
+    alignItemsBaseline?: boolean;
+    alignItemsStretch?: boolean;
+    alignItems?: AlignItemsProperty;
 }
-interface AlignContentProps {
-  alignContentStart?: boolean
-  alignContentEnd?: boolean
-  alignContentCenter?: boolean
-  alignContentSpaceBetween?: boolean
-  alignContentSpaceAround?: boolean
-  alignContentStretch?: boolean
-  alignContent?: AlignContentProperty
+interface AlignContentCSS {
+    alignContentStart?: boolean;
+    alignContentEnd?: boolean;
+    alignContentCenter?: boolean;
+    alignContentSpaceBetween?: boolean;
+    alignContentSpaceAround?: boolean;
+    alignContentStretch?: boolean;
+    alignContent?: AlignContentProperty;
 }
-interface FlexFlowProps {
-  flow?: FlexFlowProperty
+interface FlexFlowCSS {
+    flow?: FlexFlowProperty;
 }
-export interface FlexProps
-  extends DivProps,
-    DisplayProps,
-    FlexDirectionProps,
-    FlexWrapProps,
-    JustifyContentProps,
-    AlignItemsProps,
-    AlignContentProps,
-    FlexFlowProps {}
-export declare type FlexItemProps = DivProps
-export {}
+interface OrderCSS {
+    order?: GlobalsNumber;
+}
+interface FlexGrowCSS {
+    grow?: GlobalsNumber;
+}
+interface FlexShrinkCSS {
+    shrink?: GlobalsNumber;
+}
+interface FlexBasisCSS {
+    basis?: FlexBasisProperty<string | 0>;
+}
+interface FlexCSS {
+    flex?: FlexProperty<string | 0>;
+}
+interface AlignSelfCSS {
+    alignSelfAuto?: boolean;
+    alignSelfStart?: boolean;
+    alignSelfEnd?: boolean;
+    alignSelfCenter?: boolean;
+    alignSelfBaseline?: boolean;
+    alignSelfStretch?: boolean;
+    alignSelf?: AlignSelfProperty;
+}
+export interface FlexContainerProps extends DivProps, DisplayCSS, FlexDirectionCSS, FlexWrapCSS, JustifyContentCSS, AlignItemsCSS, AlignContentCSS, FlexFlowCSS {
+}
+export interface FlexItemProps extends DivProps, OrderCSS, FlexGrowCSS, FlexShrinkCSS, FlexBasisCSS, FlexCSS, AlignSelfCSS {
+}
+export {};

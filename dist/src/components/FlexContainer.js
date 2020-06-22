@@ -4,11 +4,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importDefault(require("react"));
-function Flex({ inline, row, rowReverse, column, columnReverse, flexDirection, wrap, noWrap, wrapReverse, flexWrap, justifyStart, justifyEnd, justifyCenter, justifySpaceBetween, justifySpaceAround, justifyContent, alignItemsStart, alignItemsEnd, alignItemsCenter, alignItemsBaseline, alignItemsStretch, alignItems, alignContentStart, alignContentEnd, alignContentCenter, alignContentSpaceBetween, alignContentSpaceAround, alignContentStretch, alignContent, flow, style = {}, children, ...rest }) {
-    const parseDisplay = react_1.default.useCallback(() => ({
+function FlexContainer({ inline, row, rowReverse, column, columnReverse, flexDirection, wrap, noWrap, wrapReverse, flexWrap, justifyStart, justifyEnd, justifyCenter, justifySpaceBetween, justifySpaceAround, justifyContent, alignItemsStart, alignItemsEnd, alignItemsCenter, alignItemsBaseline, alignItemsStretch, alignItems, alignContentStart, alignContentEnd, alignContentCenter, alignContentSpaceBetween, alignContentSpaceAround, alignContentStretch, alignContent, flow, style = {}, children, ...rest }) {
+    const displayStyle = react_1.default.useMemo(() => ({
         display: inline ? 'inline-flex' : 'flex',
     }), [inline]);
-    const parseFlexDirection = react_1.default.useCallback(() => {
+    const flexDirectionStyle = react_1.default.useMemo(() => {
         if (flexDirection)
             return { flexDirection };
         let value = null;
@@ -22,7 +22,7 @@ function Flex({ inline, row, rowReverse, column, columnReverse, flexDirection, w
             value = 'column-reverse';
         return value ? { flexDirection: value } : {};
     }, [column, columnReverse, flexDirection, row, rowReverse]);
-    const parseFlexWrap = react_1.default.useCallback(() => {
+    const flexWrapStyle = react_1.default.useMemo(() => {
         if (flexWrap)
             return { flexWrap };
         let value = null;
@@ -34,7 +34,7 @@ function Flex({ inline, row, rowReverse, column, columnReverse, flexDirection, w
             value = 'wrap-reverse';
         return value ? { flexWrap: value } : {};
     }, [flexWrap, noWrap, wrap, wrapReverse]);
-    const parseJustifyContent = react_1.default.useCallback(() => {
+    const justifyContentStyle = react_1.default.useMemo(() => {
         if (justifyContent)
             return { justifyContent };
         let value = null;
@@ -50,37 +50,37 @@ function Flex({ inline, row, rowReverse, column, columnReverse, flexDirection, w
             value = 'space-around';
         return value ? { justifyContent: value } : {};
     }, [justifyContent, justifyStart, justifyEnd, justifyCenter, justifySpaceBetween, justifySpaceAround]);
-    const parseAlignItems = react_1.default.useCallback(() => {
+    const alignItemsStyle = react_1.default.useMemo(() => {
         if (alignItems)
             return { alignItems };
         let value = null;
         if (alignItemsStart)
             value = 'flex-start';
-        if (alignItemsEnd)
+        else if (alignItemsEnd)
             value = 'flex-end';
-        if (alignItemsCenter)
+        else if (alignItemsCenter)
             value = 'center';
-        if (alignItemsBaseline)
+        else if (alignItemsBaseline)
             value = 'baseline';
-        if (alignItemsStretch)
+        else if (alignItemsStretch)
             value = 'stretch';
         return value ? { alignItems: value } : {};
     }, [alignItems, alignItemsStart, alignItemsEnd, alignItemsCenter, alignItemsBaseline, alignItemsStretch]);
-    const parseAlignContent = react_1.default.useCallback(() => {
+    const alignContentStyle = react_1.default.useMemo(() => {
         if (alignContent)
             return { alignContent };
         let value = null;
         if (alignContentStart)
             value = 'flex-start';
-        if (alignContentEnd)
+        else if (alignContentEnd)
             value = 'flex-end';
-        if (alignContentCenter)
+        else if (alignContentCenter)
             value = 'center';
-        if (alignContentSpaceBetween)
+        else if (alignContentSpaceBetween)
             value = 'space-between';
-        if (alignContentSpaceAround)
+        else if (alignContentSpaceAround)
             value = 'space-around';
-        if (alignContentStretch)
+        else if (alignContentStretch)
             value = 'stretch';
         return value ? { alignContent: value } : {};
     }, [
@@ -92,18 +92,18 @@ function Flex({ inline, row, rowReverse, column, columnReverse, flexDirection, w
         alignContentSpaceAround,
         alignContentStretch,
     ]);
-    const parseFlexFlow = react_1.default.useCallback(() => {
-        return flow ? { flexFlow: flow } : {};
+    const flexFlowStyle = react_1.default.useMemo(() => {
+        return flow !== undefined ? { flexFlow: flow } : {};
     }, [flow]);
     return (react_1.default.createElement("div", Object.assign({ style: {
-            ...parseDisplay(),
-            ...parseFlexDirection(),
-            ...parseFlexWrap(),
-            ...parseJustifyContent(),
-            ...parseAlignItems(),
-            ...parseAlignContent(),
-            ...parseFlexFlow(),
+            ...displayStyle,
+            ...flexDirectionStyle,
+            ...flexWrapStyle,
+            ...justifyContentStyle,
+            ...alignItemsStyle,
+            ...alignContentStyle,
+            ...flexFlowStyle,
             ...style,
         } }, rest), children));
 }
-exports.default = Flex;
+exports.default = FlexContainer;
