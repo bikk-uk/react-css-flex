@@ -1,9 +1,9 @@
 // Libraries
 import React from 'react'
+import type { AlignSelfProperty } from 'csstype'
 
 // Types
 import type { FlexItemProps } from '../index'
-import { AlignSelfProperty } from 'csstype'
 
 function FlexItem({
   // 'order'

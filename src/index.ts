@@ -1,5 +1,5 @@
 // Libraries
-import {
+import type {
   FlexDirectionProperty,
   FlexWrapProperty,
   JustifyContentProperty,

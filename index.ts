@@ -2,8 +2,8 @@
 import Flex from './src/components/FlexWrapper'
 
 // Props
-import { FlexItemProps } from './src'
-import { FlexContainerProps } from './src'
+import type { FlexItemProps } from './src'
+import type { FlexContainerProps } from './src'
 
 export { Flex, FlexContainerProps, FlexItemProps }
 

@@ -9,7 +9,7 @@ import {
 } from 'csstype'
 
 // Props
-import { FlexContainerProps } from '../index'
+import type { FlexContainerProps } from '../index'
 
 function FlexContainer({
   // 'display'
