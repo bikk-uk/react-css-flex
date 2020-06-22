@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlexContainerProps } from '../index'
+import type { FlexContainerProps } from '../index'
 declare function FlexContainer({
   inline,
   row,

@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import {
+import type {
   FlexDirectionProperty,
   FlexWrapProperty,
   JustifyContentProperty,
