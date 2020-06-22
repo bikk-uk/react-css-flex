@@ -1,8 +1,8 @@
-import React from 'react';
-import type { FlexContainerProps } from '../../index';
-import FlexItem from './FlexItem';
+import React from 'react'
+import type { FlexContainerProps } from '../../index'
+import FlexItem from './FlexItem'
 export declare class Flex extends React.Component<FlexContainerProps> {
-    static Item: typeof FlexItem;
-    render(): React.ReactElement;
+  static Item: typeof FlexItem
+  render(): React.ReactElement
 }
-export default Flex;
+export default Flex
