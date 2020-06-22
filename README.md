@@ -256,12 +256,12 @@ To modify `align-self` _(with `React.CSSProperties` types)_:
 To simplify, you can use:
 
 ```tsx
-<Flex alignSelfAuto></Flex> // align-self: auto;
-<Flex alignSelfStart></Flex> // align-self: flex-start;
-<Flex alignSelfEnd></Flex> // align-self: flex-end;
-<Flex alignSelfCenter></Flex> // align-self: center;
-<Flex alignSelfBaseline></Flex> // align-self: baseline;
-<Flex alignSelfStretch></Flex> // align-self: stretch;
+<Flex.Item alignSelfAuto></Flex.Item> // align-self: auto;
+<Flex.Item alignSelfStart></Flex.Item> // align-self: flex-start;
+<Flex.Item alignSelfEnd></Flex.Item> // align-self: flex-end;
+<Flex.Item alignSelfCenter></Flex.Item> // align-self: center;
+<Flex.Item alignSelfBaseline></Flex.Item> // align-self: baseline;
+<Flex.Item alignSelfStretch></Flex.Item> // align-self: stretch;
 ```
 
 _These are first come first served, in this order. They will be ignored if you provide it manually via the full `alignSelf` prop._
