@@ -1,0 +1,185 @@
+// Libraries
+import React from 'react'
+import { render, fireEvent } from '@testing-library/react'
+
+// Helpers
+import { matchesSnapshot } from './helpers/snapshots'
+
+// Tested Module
+import FlexItem from '../components/FlexItem'
+
+describe('<Flex /> - General', () => {
+  it('renders an empty flex item', async () => {
+    const component = <FlexItem />
+    const snapshot = `<div />`
+    matchesSnapshot(component, snapshot)
+  })
+
+  it('applies custom style to the div', async () => {
+    const component = (
+      <FlexItem
+        style={{
+          color: 'red',
+        }}
+      />
+    )
+    const snapshot = `
+<div
+  style="color: red;"
+/>
+`
+    matchesSnapshot(component, snapshot)
+  })
+
+  it('exposes existing div props', async () => {
+    const component = <FlexItem id='123' />
+    const snapshot = `
+<div
+  id="123"
+/>
+`
+    matchesSnapshot(component, snapshot)
+  })
+
+  it('exposes existing div event handlers', async () => {
+    const onClick = jest.fn()
+    const component = <FlexItem data-testid='flex-item' onClick={onClick} />
+
+    const { findByTestId } = render(component)
+
+    fireEvent.click(await findByTestId('flex-item'))
+    expect(onClick).toHaveBeenCalled()
+  })
+})
+
+describe('<FlexItem /> - order', () => {
+  it('allows the order value to be set', async () => {
+    const component = <FlexItem order={5} />
+    const snapshot = `
+<div
+  style="order: 5;"
+/>
+`
+    matchesSnapshot(component, snapshot)
+  })
+})
+
+describe('<FlexItem /> - flex-grow', () => {
+  it('allows the flex-grow value to be set', async () => {
+    const component = <FlexItem grow={67} />
+    const snapshot = `
+<div
+  style="flex-grow: 67;"
+/>
+`
+    matchesSnapshot(component, snapshot)
+  })
+})
+
+describe('<FlexItem /> - flex-shrink', () => {
+  it('allows the flex-shrink value to be set', async () => {
+    const component = <FlexItem shrink={32} />
+    const snapshot = `
+<div
+  style="flex-shrink: 32;"
+/>
+`
+    matchesSnapshot(component, snapshot)
+  })
+})
+
+describe('<FlexItem /> - flex-basis', () => {
+  it('allows the flex-basis value to be set', async () => {
+    const component = <FlexItem basis='auto' />
+    const snapshot = `
+<div
+  style="flex-basis: auto;"
+/>
+`
+    matchesSnapshot(component, snapshot)
+  })
+})
+
+describe('<FlexItem /> - flex', () => {
+  it('allows the flex value to be set', async () => {
+    const component = <FlexItem flex='0 1 auto' />
+    const snapshot = `
+<div
+  style="flex: 0 1 auto;"
+/>
+`
+    matchesSnapshot(component, snapshot)
+  })
+})
+
+describe('<FlexItem /> - align-self', () => {
+  it('allows the align-self auto to be set', async () => {
+    const component = <FlexItem alignSelfAuto />
+    const snapshot = `
+<div
+  style="align-self: auto;"
+/>
+`
+    matchesSnapshot(component, snapshot)
+  })
+
+  it('allows the align-self flex-start to be set', async () => {
+    const component = <FlexItem alignSelfStart />
+    const snapshot = `
+<div
+  style="align-self: flex-start;"
+/>
+`
+    matchesSnapshot(component, snapshot)
+  })
+
+  it('allows the align-self flex-end to be set', async () => {
+    const component = <FlexItem alignSelfEnd />
+    const snapshot = `
+<div
+  style="align-self: flex-end;"
+/>
+`
+    matchesSnapshot(component, snapshot)
+  })
+
+  it('allows the align-self center to be set', async () => {
+    const component = <FlexItem alignSelfCenter />
+    const snapshot = `
+<div
+  style="align-self: center;"
+/>
+`
+    matchesSnapshot(component, snapshot)
+  })
+
+  it('allows the align-self baseline to be set', async () => {
+    const component = <FlexItem alignSelfBaseline />
+    const snapshot = `
+<div
+  style="align-self: baseline;"
+/>
+`
+    matchesSnapshot(component, snapshot)
+  })
+
+  it('allows the align-self stretch to be set', async () => {
+    const component = <FlexItem alignSelfStretch />
+    const snapshot = `
+<div
+  style="align-self: stretch;"
+/>
+`
+    matchesSnapshot(component, snapshot)
+  })
+
+  test('align-self when manually set, overrides simple props', async () => {
+    const component = <FlexItem alignSelf='auto' alignSelfStretch alignSelfBaseline />
+    const snapshot = `
+<div
+  style="align-self: auto;"
+/>
+`
+    matchesSnapshot(component, snapshot)
+  })
+})

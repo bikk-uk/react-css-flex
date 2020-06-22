@@ -9,9 +9,9 @@ import {
 } from 'csstype'
 
 // Props
-import { FlexProps } from '../index'
+import { FlexContainerProps } from '../index'
 
-function Flex({
+function FlexContainer({
   // 'display'
   inline,
 
@@ -65,7 +65,7 @@ function Flex({
   style = {},
   children,
   ...rest
-}: FlexProps): React.ReactElement {
+}: FlexContainerProps): React.ReactElement {
   const displayStyle = React.useMemo(
     (): React.CSSProperties => ({
       display: inline ? 'inline-flex' : 'flex',
@@ -115,10 +115,10 @@ function Flex({
     // see if a specific value has been provided, first come first serve
     let value: AlignItemsProperty | null = null
     if (alignItemsStart) value = 'flex-start'
-    if (alignItemsEnd) value = 'flex-end'
-    if (alignItemsCenter) value = 'center'
-    if (alignItemsBaseline) value = 'baseline'
-    if (alignItemsStretch) value = 'stretch'
+    else if (alignItemsEnd) value = 'flex-end'
+    else if (alignItemsCenter) value = 'center'
+    else if (alignItemsBaseline) value = 'baseline'
+    else if (alignItemsStretch) value = 'stretch'
     return value ? { alignItems: value } : {}
   }, [alignItems, alignItemsStart, alignItemsEnd, alignItemsCenter, alignItemsBaseline, alignItemsStretch])
 
@@ -128,11 +128,11 @@ function Flex({
     // see if a specific value has been provided, first come first serve
     let value: AlignContentProperty | null = null
     if (alignContentStart) value = 'flex-start'
-    if (alignContentEnd) value = 'flex-end'
-    if (alignContentCenter) value = 'center'
-    if (alignContentSpaceBetween) value = 'space-between'
-    if (alignContentSpaceAround) value = 'space-around'
-    if (alignContentStretch) value = 'stretch'
+    else if (alignContentEnd) value = 'flex-end'
+    else if (alignContentCenter) value = 'center'
+    else if (alignContentSpaceBetween) value = 'space-between'
+    else if (alignContentSpaceAround) value = 'space-around'
+    else if (alignContentStretch) value = 'stretch'
     return value ? { alignContent: value } : {}
   }, [
     alignContent,
@@ -166,4 +166,4 @@ function Flex({
   )
 }
 
-export default Flex
+export default FlexContainer

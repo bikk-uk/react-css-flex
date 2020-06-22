@@ -6,16 +6,20 @@ import {
   AlignItemsProperty,
   AlignContentProperty,
   FlexFlowProperty,
+  GlobalsNumber,
+  FlexBasisProperty,
+  FlexProperty,
+  AlignSelfProperty,
 } from 'csstype'
 
 type DivProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
-interface DisplayProps {
+interface DisplayCSS {
   // 'display'
   inline?: boolean
 }
 
-interface FlexDirectionProps {
+interface FlexDirectionCSS {
   // 'flex-direction' short
   row?: boolean
   rowReverse?: boolean
@@ -25,7 +29,7 @@ interface FlexDirectionProps {
   flexDirection?: FlexDirectionProperty
 }
 
-interface FlexWrapProps {
+interface FlexWrapCSS {
   // 'flex-wrap' short
   wrap?: boolean
   noWrap?: boolean
@@ -34,7 +38,7 @@ interface FlexWrapProps {
   flexWrap?: FlexWrapProperty
 }
 
-interface JustifyContentProps {
+interface JustifyContentCSS {
   // 'justify-content' short
   justifyStart?: boolean
   justifyEnd?: boolean
@@ -45,7 +49,7 @@ interface JustifyContentProps {
   justifyContent?: JustifyContentProperty
 }
 
-interface AlignItemsProps {
+interface AlignItemsCSS {
   // 'align-items' short
   alignItemsStart?: boolean
   alignItemsEnd?: boolean
@@ -56,7 +60,7 @@ interface AlignItemsProps {
   alignItems?: AlignItemsProperty
 }
 
-interface AlignContentProps {
+interface AlignContentCSS {
   // 'align-content' short
   alignContentStart?: boolean
   alignContentEnd?: boolean
@@ -68,18 +72,63 @@ interface AlignContentProps {
   alignContent?: AlignContentProperty
 }
 
-interface FlexFlowProps {
+interface FlexFlowCSS {
+  // 'flex-flow'
   flow?: FlexFlowProperty
 }
 
-export interface FlexProps
-  extends DivProps,
-    DisplayProps,
-    FlexDirectionProps,
-    FlexWrapProps,
-    JustifyContentProps,
-    AlignItemsProps,
-    AlignContentProps,
-    FlexFlowProps {}
+interface OrderCSS {
+  // 'order'
+  order?: GlobalsNumber
+}
 
-export type FlexItemProps = DivProps
+interface FlexGrowCSS {
+  // 'flex-grow'
+  grow?: GlobalsNumber
+}
+
+interface FlexShrinkCSS {
+  // 'flex-shrink'
+  shrink?: GlobalsNumber
+}
+
+interface FlexBasisCSS {
+  // 'flex-basis'
+  basis?: FlexBasisProperty<string | 0>
+}
+
+interface FlexCSS {
+  // 'flex'
+  flex?: FlexProperty<string | 0>
+}
+
+interface AlignSelfCSS {
+  // 'align-self' short
+  alignSelfAuto?: boolean
+  alignSelfStart?: boolean
+  alignSelfEnd?: boolean
+  alignSelfCenter?: boolean
+  alignSelfBaseline?: boolean
+  alignSelfStretch?: boolean
+  // 'align-self' manual
+  alignSelf?: AlignSelfProperty
+}
+
+export interface FlexContainerProps
+  extends DivProps,
+    DisplayCSS,
+    FlexDirectionCSS,
+    FlexWrapCSS,
+    JustifyContentCSS,
+    AlignItemsCSS,
+    AlignContentCSS,
+    FlexFlowCSS {}
+
+export interface FlexItemProps
+  extends DivProps,
+    OrderCSS,
+    FlexGrowCSS,
+    FlexShrinkCSS,
+    FlexBasisCSS,
+    FlexCSS,
+    AlignSelfCSS {}
