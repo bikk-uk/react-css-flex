@@ -6,11 +6,11 @@ import { render, fireEvent } from '@testing-library/react'
 import { matchesSnapshot } from './helpers/snapshots'
 
 // Tested Module
-import Flex from '../components/Flex'
+import FlexContainer from '../components/FlexContainer'
 
 describe('<Flex /> - General', () => {
   it('renders an empty flex container', async () => {
-    const component = <Flex />
+    const component = <FlexContainer />
     const snapshot = `
 <div
   style="display: flex;"
@@ -21,7 +21,7 @@ describe('<Flex /> - General', () => {
 
   it('applies custom style to the div', async () => {
     const component = (
-      <Flex
+      <FlexContainer
         style={{
           color: 'blue',
         }}
@@ -37,7 +37,7 @@ describe('<Flex /> - General', () => {
 
   test('custom styles can be an override to the props', async () => {
     const component = (
-      <Flex
+      <FlexContainer
         style={{
           display: 'none',
         }}
@@ -52,7 +52,7 @@ describe('<Flex /> - General', () => {
   })
 
   it('exposes existing div props', async () => {
-    const component = <Flex id='123' />
+    const component = <FlexContainer id='123' />
     const snapshot = `
   <div
     id="123"
@@ -64,7 +64,7 @@ describe('<Flex /> - General', () => {
 
   it('exposes existing div event handlers', async () => {
     const onClick = jest.fn()
-    const component = <Flex data-testid='flex' onClick={onClick} />
+    const component = <FlexContainer data-testid='flex' onClick={onClick} />
 
     const { findByTestId } = render(component)
 
@@ -74,8 +74,8 @@ describe('<Flex /> - General', () => {
 })
 
 describe('<Flex /> - Inline', () => {
-  it('renders an empty flex container', async () => {
-    const component = <Flex inline />
+  it('renders an empty inline flex container', async () => {
+    const component = <FlexContainer inline />
     const snapshot = `
 <div
   style="display: inline-flex;"
@@ -87,7 +87,7 @@ describe('<Flex /> - Inline', () => {
 
 describe('<Flex /> - flex-direction', () => {
   it('allows the flex-direction row to be set', async () => {
-    const component = <Flex row />
+    const component = <FlexContainer row />
     const snapshot = `
   <div
     style="display: flex; flex-direction: row;"
@@ -97,7 +97,7 @@ describe('<Flex /> - flex-direction', () => {
   })
 
   it('allows the flex-direction row-reverse to be set', async () => {
-    const component = <Flex rowReverse />
+    const component = <FlexContainer rowReverse />
     const snapshot = `
   <div
     style="display: flex; flex-direction: row-reverse;"
@@ -107,7 +107,7 @@ describe('<Flex /> - flex-direction', () => {
   })
 
   it('allows the flex-direction column to be set', async () => {
-    const component = <Flex column />
+    const component = <FlexContainer column />
     const snapshot = `
   <div
     style="display: flex; flex-direction: column;"
@@ -117,7 +117,7 @@ describe('<Flex /> - flex-direction', () => {
   })
 
   it('allows the flex-direction column-reverse to be set', async () => {
-    const component = <Flex columnReverse />
+    const component = <FlexContainer columnReverse />
     const snapshot = `
   <div
     style="display: flex; flex-direction: column-reverse;"
@@ -127,7 +127,7 @@ describe('<Flex /> - flex-direction', () => {
   })
 
   it('allows the flex-direction to be manually set', async () => {
-    const component = <Flex flexDirection='column' />
+    const component = <FlexContainer flexDirection='column' />
     const snapshot = `
   <div
     style="display: flex; flex-direction: column;"
@@ -137,7 +137,7 @@ describe('<Flex /> - flex-direction', () => {
   })
 
   test('flex-direction when manually set, overrides simple props', async () => {
-    const component = <Flex flexDirection='column' row rowReverse />
+    const component = <FlexContainer flexDirection='column' row rowReverse />
     const snapshot = `
   <div
     style="display: flex; flex-direction: column;"
@@ -149,7 +149,7 @@ describe('<Flex /> - flex-direction', () => {
 
 describe('<Flex /> - flex-wrap', () => {
   it('allows the flex-wrap wrap to be set', async () => {
-    const component = <Flex wrap />
+    const component = <FlexContainer wrap />
     const snapshot = `
   <div
     style="display: flex; flex-wrap: wrap;"
@@ -159,7 +159,7 @@ describe('<Flex /> - flex-wrap', () => {
   })
 
   it('allows the flex-wrap nowrap to be set', async () => {
-    const component = <Flex noWrap />
+    const component = <FlexContainer noWrap />
     const snapshot = `
   <div
     style="display: flex; flex-wrap: nowrap;"
@@ -169,7 +169,7 @@ describe('<Flex /> - flex-wrap', () => {
   })
 
   it('allows the flex-wrap wrap-reverse to be set', async () => {
-    const component = <Flex wrapReverse />
+    const component = <FlexContainer wrapReverse />
     const snapshot = `
   <div
     style="display: flex; flex-wrap: wrap-reverse;"
@@ -179,7 +179,7 @@ describe('<Flex /> - flex-wrap', () => {
   })
 
   test('flex-wrap when manually set, overrides simple props', async () => {
-    const component = <Flex flexWrap='wrap' noWrap wrapReverse />
+    const component = <FlexContainer flexWrap='wrap' noWrap wrapReverse />
     const snapshot = `
   <div
     style="display: flex; flex-wrap: wrap;"
@@ -191,7 +191,7 @@ describe('<Flex /> - flex-wrap', () => {
 
 describe('<Flex /> - justify-content', () => {
   it('allows the justify-content flex-start to be set', async () => {
-    const component = <Flex justifyStart />
+    const component = <FlexContainer justifyStart />
     const snapshot = `
   <div
     style="display: flex; justify-content: flex-start;"
@@ -201,7 +201,7 @@ describe('<Flex /> - justify-content', () => {
   })
 
   it('allows the justify-content flex-end to be set', async () => {
-    const component = <Flex justifyEnd />
+    const component = <FlexContainer justifyEnd />
     const snapshot = `
   <div
     style="display: flex; justify-content: flex-end;"
@@ -211,7 +211,7 @@ describe('<Flex /> - justify-content', () => {
   })
 
   it('allows the justify-content center to be set', async () => {
-    const component = <Flex justifyCenter />
+    const component = <FlexContainer justifyCenter />
     const snapshot = `
   <div
     style="display: flex; justify-content: center;"
@@ -221,7 +221,7 @@ describe('<Flex /> - justify-content', () => {
   })
 
   it('allows the justify-content space-between to be set', async () => {
-    const component = <Flex justifySpaceBetween />
+    const component = <FlexContainer justifySpaceBetween />
     const snapshot = `
   <div
     style="display: flex; justify-content: space-between;"
@@ -231,7 +231,7 @@ describe('<Flex /> - justify-content', () => {
   })
 
   it('allows the justify-content space-around to be set', async () => {
-    const component = <Flex justifySpaceAround />
+    const component = <FlexContainer justifySpaceAround />
     const snapshot = `
   <div
     style="display: flex; justify-content: space-around;"
@@ -241,7 +241,7 @@ describe('<Flex /> - justify-content', () => {
   })
 
   test('justify-content when manually set, overrides simple props', async () => {
-    const component = <Flex justifyContent='center' justifyEnd justifySpaceAround />
+    const component = <FlexContainer justifyContent='center' justifyEnd justifySpaceAround />
     const snapshot = `
   <div
     style="display: flex; justify-content: center;"
@@ -253,7 +253,7 @@ describe('<Flex /> - justify-content', () => {
 
 describe('<Flex /> - align-items', () => {
   it('allows the align-items flex-start to be set', async () => {
-    const component = <Flex alignItemsStart />
+    const component = <FlexContainer alignItemsStart />
     const snapshot = `
   <div
     style="display: flex; align-items: flex-start;"
@@ -263,7 +263,7 @@ describe('<Flex /> - align-items', () => {
   })
 
   it('allows the align-items flex-end to be set', async () => {
-    const component = <Flex alignItemsEnd />
+    const component = <FlexContainer alignItemsEnd />
     const snapshot = `
   <div
     style="display: flex; align-items: flex-end;"
@@ -273,7 +273,7 @@ describe('<Flex /> - align-items', () => {
   })
 
   it('allows the align-items center to be set', async () => {
-    const component = <Flex alignItemsCenter />
+    const component = <FlexContainer alignItemsCenter />
     const snapshot = `
   <div
     style="display: flex; align-items: center;"
@@ -283,7 +283,7 @@ describe('<Flex /> - align-items', () => {
   })
 
   it('allows the align-items baseline to be set', async () => {
-    const component = <Flex alignItemsBaseline />
+    const component = <FlexContainer alignItemsBaseline />
     const snapshot = `
   <div
     style="display: flex; align-items: baseline;"
@@ -293,7 +293,7 @@ describe('<Flex /> - align-items', () => {
   })
 
   it('allows the align-items stretch to be set', async () => {
-    const component = <Flex alignItemsStretch />
+    const component = <FlexContainer alignItemsStretch />
     const snapshot = `
   <div
     style="display: flex; align-items: stretch;"
@@ -303,7 +303,7 @@ describe('<Flex /> - align-items', () => {
   })
 
   test('align-items when manually set, overrides simple props', async () => {
-    const component = <Flex alignItems='center' alignItemsBaseline alignItemsStretch />
+    const component = <FlexContainer alignItems='center' alignItemsBaseline alignItemsStretch />
     const snapshot = `
   <div
     style="display: flex; align-items: center;"
@@ -315,7 +315,7 @@ describe('<Flex /> - align-items', () => {
 
 describe('<Flex /> - align-content', () => {
   it('allows the align-content flex-start to be set', async () => {
-    const component = <Flex alignContentStart />
+    const component = <FlexContainer alignContentStart />
     const snapshot = `
   <div
     style="display: flex; align-content: flex-start;"
@@ -325,7 +325,7 @@ describe('<Flex /> - align-content', () => {
   })
 
   it('allows the align-content flex-end to be set', async () => {
-    const component = <Flex alignContentEnd />
+    const component = <FlexContainer alignContentEnd />
     const snapshot = `
   <div
     style="display: flex; align-content: flex-end;"
@@ -335,7 +335,7 @@ describe('<Flex /> - align-content', () => {
   })
 
   it('allows the align-content center to be set', async () => {
-    const component = <Flex alignContentCenter />
+    const component = <FlexContainer alignContentCenter />
     const snapshot = `
   <div
     style="display: flex; align-content: center;"
@@ -345,7 +345,7 @@ describe('<Flex /> - align-content', () => {
   })
 
   it('allows the align-content space-between to be set', async () => {
-    const component = <Flex alignContentSpaceBetween />
+    const component = <FlexContainer alignContentSpaceBetween />
     const snapshot = `
   <div
     style="display: flex; align-content: space-between;"
@@ -355,7 +355,7 @@ describe('<Flex /> - align-content', () => {
   })
 
   it('allows the align-content space-around to be set', async () => {
-    const component = <Flex alignContentSpaceAround />
+    const component = <FlexContainer alignContentSpaceAround />
     const snapshot = `
   <div
     style="display: flex; align-content: space-around;"
@@ -365,7 +365,7 @@ describe('<Flex /> - align-content', () => {
   })
 
   it('allows the align-content stretch to be set', async () => {
-    const component = <Flex alignContentStretch />
+    const component = <FlexContainer alignContentStretch />
     const snapshot = `
   <div
     style="display: flex; align-content: stretch;"
@@ -375,7 +375,7 @@ describe('<Flex /> - align-content', () => {
   })
 
   test('align-content when manually set, overrides simple props', async () => {
-    const component = <Flex alignContent='center' alignContentEnd alignContentStart />
+    const component = <FlexContainer alignContent='center' alignContentEnd alignContentStart />
     const snapshot = `
   <div
     style="display: flex; align-content: center;"
@@ -387,7 +387,7 @@ describe('<Flex /> - align-content', () => {
 
 describe('<Flex /> - flex-flow', () => {
   it('allows flex-flow to be set', async () => {
-    const component = <Flex flow='row nowrap' />
+    const component = <FlexContainer flow='row nowrap' />
     const snapshot = `
   <div
     style="display: flex; flex-flow: row nowrap;"

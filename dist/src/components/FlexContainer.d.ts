@@ -1,6 +1,6 @@
 import React from 'react'
-import { FlexProps } from './index'
-declare function Flex({
+import type { FlexContainerProps } from '../index'
+declare function FlexContainer({
   inline,
   row,
   rowReverse,
@@ -34,5 +34,5 @@ declare function Flex({
   style,
   children,
   ...rest
-}: FlexProps): React.ReactElement
-export default Flex
+}: FlexContainerProps): React.ReactElement
+export default FlexContainer

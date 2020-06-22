@@ -182,31 +182,102 @@ To help with structuring your components, a Flex Item is also available.
 </Flex>
 ```
 
-_**Note**: At this time `<Flex.Item />` is purely syntactic sugar, available to make the structure of the component clearer. It will behave like (and is) a `<div />` with all the TypeScript definitions. Development is ongoing to add support for the Flex Item properties. For now you can just apply them via the usual React styles:_
+#### Order
+
+To modify `order` _(with `React.CSSProperties` types)_:
 
 ```tsx
 <Flex>
-  <Flex.Item
-    style={{
-      flexGrow: 2,
-    }}>
-    <MyFirstComponent />
+  <Flex.Item order={2}>
+    <MyComponent />
+</Flex>
+```
+
+#### Flex Grow
+
+To modify `flex-grow` _(with `React.CSSProperties` types)_:
+
+```tsx
+<Flex>
+  <Flex.Item grow={5}>
+    <MyComponent />
   </Flex.Item>
 </Flex>
 ```
+
+#### Flex Shrink
+
+To modify `flex-shrink` _(with `React.CSSProperties` types)_:
+
+```tsx
+<Flex>
+  <Flex.Item shrink={3}>
+    <MyComponent />
+  </Flex.Item>
+</Flex>
+```
+
+#### Flex Basis
+
+To modify `flex-basis` _(with `React.CSSProperties` types)_:
+
+```tsx
+<Flex>
+  <Flex.Item basis='4em'>
+    <MyComponent />
+  </Flex.Item>
+</Flex>
+```
+
+#### Flex (Shorthand)
+
+To modify `flex` _(with `React.CSSProperties` types)_:
+
+```tsx
+<Flex>
+  <Flex.Item flex='1 0'>
+    <MyComponent />
+  </Flex.Item>
+</Flex>
+```
+
+#### Align Self
+
+To modify `align-self` _(with `React.CSSProperties` types)_:
+
+```tsx
+<Flex>
+  <Flex.Item alignSelf='flex-end'>
+    <MyComponent />
+  </Flex.Item>
+</Flex>
+```
+
+To simplify, you can use:
+
+```tsx
+<Flex.Item alignSelfAuto></Flex.Item> // align-self: auto;
+<Flex.Item alignSelfStart></Flex.Item> // align-self: flex-start;
+<Flex.Item alignSelfEnd></Flex.Item> // align-self: flex-end;
+<Flex.Item alignSelfCenter></Flex.Item> // align-self: center;
+<Flex.Item alignSelfBaseline></Flex.Item> // align-self: baseline;
+<Flex.Item alignSelfStretch></Flex.Item> // align-self: stretch;
+```
+
+_These are first come first served, in this order. They will be ignored if you provide it manually via the full `alignSelf` prop._
 
 ## Notes
 
 All the React `div` props and TypeScript definitions are exposed/passed through. This allows for an identical development experience whilst being able to ignore any Flexbox related CSS.
 
 ```tsx
-<Flex
-  column
-  onMouseEnter={onMouseEnter}
-  style={{
-    background: 'red',
-  }}>
-  <MyComponent />
+<Flex column onMouseEnter={onMouseEnter}>
+  <Flex.Item grow={2}>
+    <MyComponent />
+  </Flex.Item>
+  <Flex.Item alignSelfCenter onClick={handleItemClick}>
+    <MyComponent />
+  </Flex.Item>
 </Flex>
 ```
 
@@ -218,6 +289,8 @@ CSS provided via `styles` will be applied last, this allows all generated CSS to
   style={{
     display: 'flex', // this will override everything else
   }}>
-  <MyComponent />
+  <Flex.Item>
+    <MyComponent />
+  </Flex.Item>
 </Flex>
 ```

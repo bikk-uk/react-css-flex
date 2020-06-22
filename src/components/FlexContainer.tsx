@@ -9,9 +9,9 @@ import {
 } from 'csstype'
 
 // Props
-import { FlexProps } from './index'
+import type { FlexContainerProps } from '../index'
 
-function Flex({
+function FlexContainer({
   // 'display'
   inline,
 
@@ -65,15 +65,15 @@ function Flex({
   style = {},
   children,
   ...rest
-}: FlexProps): React.ReactElement {
-  const parseDisplay = React.useCallback(
+}: FlexContainerProps): React.ReactElement {
+  const displayStyle = React.useMemo(
     (): React.CSSProperties => ({
       display: inline ? 'inline-flex' : 'flex',
     }),
     [inline],
   )
 
-  const parseFlexDirection = React.useCallback((): React.CSSProperties => {
+  const flexDirectionStyle = React.useMemo((): React.CSSProperties => {
     // the manual version has been provided, that takes precedence
     if (flexDirection) return { flexDirection }
     // see if a specific value has been provided, first come first serve
@@ -85,7 +85,7 @@ function Flex({
     return value ? { flexDirection: value } : {}
   }, [column, columnReverse, flexDirection, row, rowReverse])
 
-  const parseFlexWrap = React.useCallback((): React.CSSProperties => {
+  const flexWrapStyle = React.useMemo((): React.CSSProperties => {
     // the manual version has been provided, that takes precedence
     if (flexWrap) return { flexWrap }
     // see if a specific value has been provided, first come first serve
@@ -96,7 +96,7 @@ function Flex({
     return value ? { flexWrap: value } : {}
   }, [flexWrap, noWrap, wrap, wrapReverse])
 
-  const parseJustifyContent = React.useCallback(() => {
+  const justifyContentStyle = React.useMemo((): React.CSSProperties => {
     // the manual version has been provided, that takes precedence
     if (justifyContent) return { justifyContent }
     // see if a specific value has been provided, first come first serve
@@ -109,30 +109,30 @@ function Flex({
     return value ? { justifyContent: value } : {}
   }, [justifyContent, justifyStart, justifyEnd, justifyCenter, justifySpaceBetween, justifySpaceAround])
 
-  const parseAlignItems = React.useCallback(() => {
+  const alignItemsStyle = React.useMemo((): React.CSSProperties => {
     // the manual version has been provided, that takes precedence
     if (alignItems) return { alignItems }
     // see if a specific value has been provided, first come first serve
     let value: AlignItemsProperty | null = null
     if (alignItemsStart) value = 'flex-start'
-    if (alignItemsEnd) value = 'flex-end'
-    if (alignItemsCenter) value = 'center'
-    if (alignItemsBaseline) value = 'baseline'
-    if (alignItemsStretch) value = 'stretch'
+    else if (alignItemsEnd) value = 'flex-end'
+    else if (alignItemsCenter) value = 'center'
+    else if (alignItemsBaseline) value = 'baseline'
+    else if (alignItemsStretch) value = 'stretch'
     return value ? { alignItems: value } : {}
   }, [alignItems, alignItemsStart, alignItemsEnd, alignItemsCenter, alignItemsBaseline, alignItemsStretch])
 
-  const parseAlignContent = React.useCallback(() => {
+  const alignContentStyle = React.useMemo((): React.CSSProperties => {
     // the manual version has been provided, that takes precedence
     if (alignContent) return { alignContent }
     // see if a specific value has been provided, first come first serve
     let value: AlignContentProperty | null = null
     if (alignContentStart) value = 'flex-start'
-    if (alignContentEnd) value = 'flex-end'
-    if (alignContentCenter) value = 'center'
-    if (alignContentSpaceBetween) value = 'space-between'
-    if (alignContentSpaceAround) value = 'space-around'
-    if (alignContentStretch) value = 'stretch'
+    else if (alignContentEnd) value = 'flex-end'
+    else if (alignContentCenter) value = 'center'
+    else if (alignContentSpaceBetween) value = 'space-between'
+    else if (alignContentSpaceAround) value = 'space-around'
+    else if (alignContentStretch) value = 'stretch'
     return value ? { alignContent: value } : {}
   }, [
     alignContent,
@@ -144,20 +144,20 @@ function Flex({
     alignContentStretch,
   ])
 
-  const parseFlexFlow = React.useCallback(() => {
-    return flow ? { flexFlow: flow } : {}
+  const flexFlowStyle = React.useMemo((): React.CSSProperties => {
+    return flow !== undefined ? { flexFlow: flow } : {}
   }, [flow])
 
   return (
     <div
       style={{
-        ...parseDisplay(),
-        ...parseFlexDirection(),
-        ...parseFlexWrap(),
-        ...parseJustifyContent(),
-        ...parseAlignItems(),
-        ...parseAlignContent(),
-        ...parseFlexFlow(),
+        ...displayStyle,
+        ...flexDirectionStyle,
+        ...flexWrapStyle,
+        ...justifyContentStyle,
+        ...alignItemsStyle,
+        ...alignContentStyle,
+        ...flexFlowStyle,
         ...style,
       }}
       {...rest}>
@@ -166,4 +166,4 @@ function Flex({
   )
 }
 
-export default Flex
+export default FlexContainer

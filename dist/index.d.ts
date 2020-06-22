@@ -1,5 +1,5 @@
 import Flex from './src/components/FlexWrapper'
-import { FlexProps } from './src/components'
-import { DivProps as FlexItemProps } from './src'
-export { Flex, FlexProps, FlexItemProps }
+import type { FlexItemProps } from './src'
+import type { FlexContainerProps } from './src'
+export { Flex, FlexContainerProps, FlexItemProps }
 export default Flex

@@ -4,12 +4,12 @@ import React from 'react'
 // Helpers
 import { matchesSnapshot } from './helpers/snapshots'
 
-// Tested Module
-import FlexWrapper from '../components/FlexWrapper'
+// Tested Module (export named as it would be)
+import Flex from '../components/FlexWrapper'
 
 describe('<FlexWrapper />', () => {
   it('renders an empty flex container', async () => {
-    const component = <FlexWrapper />
+    const component = <Flex />
     const snapshot = `
 <div
   style="display: flex;"
@@ -19,7 +19,7 @@ describe('<FlexWrapper />', () => {
   })
 
   it('renders a flex container with string content', async () => {
-    const component = <FlexWrapper>Children</FlexWrapper>
+    const component = <Flex>Children</Flex>
     const snapshot = `
 <div
   style="display: flex;"
@@ -32,9 +32,9 @@ describe('<FlexWrapper />', () => {
 
   it('renders a flex container with children', async () => {
     const component = (
-      <FlexWrapper>
+      <Flex>
         <div>Children</div>
-      </FlexWrapper>
+      </Flex>
     )
     const snapshot = `
 <div
@@ -50,9 +50,9 @@ describe('<FlexWrapper />', () => {
 
   it('renders a flex container with a flex item', async () => {
     const component = (
-      <FlexWrapper>
-        <FlexWrapper.Item>Item 1</FlexWrapper.Item>
-      </FlexWrapper>
+      <Flex>
+        <Flex.Item>Item 1</Flex.Item>
+      </Flex>
     )
     const snapshot = `
 <div
@@ -66,21 +66,45 @@ describe('<FlexWrapper />', () => {
     matchesSnapshot(component, snapshot)
   })
 
-  it('renders a flex container with flex items', async () => {
+  it('renders a flex container with a flex item, both support independent props', async () => {
     const component = (
-      <FlexWrapper>
-        <FlexWrapper.Item>Item 1</FlexWrapper.Item>
-        <FlexWrapper.Item>Item 2</FlexWrapper.Item>
-      </FlexWrapper>
+      <Flex alignContentCenter>
+        <Flex.Item order={5}>Item 1</Flex.Item>
+      </Flex>
     )
     const snapshot = `
 <div
-  style="display: flex;"
+  style="display: flex; align-content: center;"
 >
-  <div>
+  <div
+    style="order: 5;"
+  >
     Item 1
   </div>
-  <div>
+</div>
+`
+    matchesSnapshot(component, snapshot)
+  })
+
+  it('renders a flex container with flex items, both support independent props', async () => {
+    const component = (
+      <Flex row justifyEnd>
+        <Flex.Item alignSelfCenter>Item 1</Flex.Item>
+        <Flex.Item basis='auto'>Item 2</Flex.Item>
+      </Flex>
+    )
+    const snapshot = `
+<div
+  style="display: flex; flex-direction: row; justify-content: flex-end;"
+>
+  <div
+    style="align-self: center;"
+  >
+    Item 1
+  </div>
+  <div
+    style="flex-basis: auto;"
+  >
     Item 2
   </div>
 </div>
