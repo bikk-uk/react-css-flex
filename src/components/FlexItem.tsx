@@ -2,9 +2,9 @@
 import React from 'react'
 
 // Types
-import type { DivProps } from '../index'
+import type { FlexItemProps } from '../index'
 
-function Item({ children, style = {}, ...rest }: DivProps): React.ReactElement {
+function Item({ children, style = {}, ...rest }: FlexItemProps): React.ReactElement {
   return (
     <div style={{ ...style }} {...rest}>
       {children}

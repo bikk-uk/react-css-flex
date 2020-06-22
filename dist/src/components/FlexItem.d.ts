@@ -1,4 +1,4 @@
 import React from 'react'
-import type { DivProps } from '../index'
-declare function Item({ children, style, ...rest }: DivProps): React.ReactElement
+import type { FlexItemProps } from '../index'
+declare function Item({ children, style, ...rest }: FlexItemProps): React.ReactElement
 export default Item

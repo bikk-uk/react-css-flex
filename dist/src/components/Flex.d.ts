@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlexProps } from './index'
+import { FlexProps } from '../../index'
 declare function Flex({
   inline,
   row,

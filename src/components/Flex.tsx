@@ -9,7 +9,7 @@ import {
 } from 'csstype'
 
 // Props
-import { FlexProps } from './index'
+import { FlexProps } from '../../index'
 
 function Flex({
   // 'display'
