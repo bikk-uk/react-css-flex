@@ -277,7 +277,14 @@ All the React `div` props and TypeScript definitions are exposed/passed through.
   style={{
     background: 'red',
   }}>
-  <MyComponent />
+  <Flex.Item
+    alignSelfCenter
+    style={{
+      background: 'orange',
+    }}>
+    >
+    <MyComponent />
+  </Flex.Item>
 </Flex>
 ```
 
@@ -289,6 +296,8 @@ CSS provided via `styles` will be applied last, this allows all generated CSS to
   style={{
     display: 'flex', // this will override everything else
   }}>
-  <MyComponent />
+  <Flex.Item>
+    <MyComponent />
+  </Flex.Item>
 </Flex>
 ```
