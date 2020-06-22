@@ -271,18 +271,11 @@ _These are first come first served, in this order. They will be ignored if you p
 All the React `div` props and TypeScript definitions are exposed/passed through. This allows for an identical development experience whilst being able to ignore any Flexbox related CSS.
 
 ```tsx
-<Flex
-  column
-  onMouseEnter={onMouseEnter}
-  style={{
-    background: 'red',
-  }}>
-  <Flex.Item
-    alignSelfCenter
-    style={{
-      background: 'orange',
-    }}>
-    >
+<Flex column onMouseEnter={onMouseEnter}>
+  <Flex.Item grow={2}>
+    <MyComponent />
+  </Flex.Item>
+  <Flex.Item alignSelfCenter onClick={handleItemClick}>
     <MyComponent />
   </Flex.Item>
 </Flex>
