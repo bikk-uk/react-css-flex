@@ -9,7 +9,7 @@ import {
 } from 'csstype'
 
 // Props
-import { FlexProps } from '../../index'
+import { FlexProps } from '../index'
 
 function Flex({
   // 'display'
@@ -66,14 +66,14 @@ function Flex({
   children,
   ...rest
 }: FlexProps): React.ReactElement {
-  const parseDisplay = React.useCallback(
+  const displayStyle = React.useMemo(
     (): React.CSSProperties => ({
       display: inline ? 'inline-flex' : 'flex',
     }),
     [inline],
   )
 
-  const parseFlexDirection = React.useCallback((): React.CSSProperties => {
+  const flexDirectionStyle = React.useMemo((): React.CSSProperties => {
     // the manual version has been provided, that takes precedence
     if (flexDirection) return { flexDirection }
     // see if a specific value has been provided, first come first serve
@@ -85,7 +85,7 @@ function Flex({
     return value ? { flexDirection: value } : {}
   }, [column, columnReverse, flexDirection, row, rowReverse])
 
-  const parseFlexWrap = React.useCallback((): React.CSSProperties => {
+  const flexWrapStyle = React.useMemo((): React.CSSProperties => {
     // the manual version has been provided, that takes precedence
     if (flexWrap) return { flexWrap }
     // see if a specific value has been provided, first come first serve
@@ -96,7 +96,7 @@ function Flex({
     return value ? { flexWrap: value } : {}
   }, [flexWrap, noWrap, wrap, wrapReverse])
 
-  const parseJustifyContent = React.useCallback(() => {
+  const justifyContentStyle = React.useMemo((): React.CSSProperties => {
     // the manual version has been provided, that takes precedence
     if (justifyContent) return { justifyContent }
     // see if a specific value has been provided, first come first serve
@@ -109,7 +109,7 @@ function Flex({
     return value ? { justifyContent: value } : {}
   }, [justifyContent, justifyStart, justifyEnd, justifyCenter, justifySpaceBetween, justifySpaceAround])
 
-  const parseAlignItems = React.useCallback(() => {
+  const alignItemsStyle = React.useMemo((): React.CSSProperties => {
     // the manual version has been provided, that takes precedence
     if (alignItems) return { alignItems }
     // see if a specific value has been provided, first come first serve
@@ -122,7 +122,7 @@ function Flex({
     return value ? { alignItems: value } : {}
   }, [alignItems, alignItemsStart, alignItemsEnd, alignItemsCenter, alignItemsBaseline, alignItemsStretch])
 
-  const parseAlignContent = React.useCallback(() => {
+  const alignContentStyle = React.useMemo((): React.CSSProperties => {
     // the manual version has been provided, that takes precedence
     if (alignContent) return { alignContent }
     // see if a specific value has been provided, first come first serve
@@ -144,20 +144,20 @@ function Flex({
     alignContentStretch,
   ])
 
-  const parseFlexFlow = React.useCallback(() => {
-    return flow ? { flexFlow: flow } : {}
+  const flexFlowStyle = React.useMemo((): React.CSSProperties => {
+    return flow !== undefined ? { flexFlow: flow } : {}
   }, [flow])
 
   return (
     <div
       style={{
-        ...parseDisplay(),
-        ...parseFlexDirection(),
-        ...parseFlexWrap(),
-        ...parseJustifyContent(),
-        ...parseAlignItems(),
-        ...parseAlignContent(),
-        ...parseFlexFlow(),
+        ...displayStyle,
+        ...flexDirectionStyle,
+        ...flexWrapStyle,
+        ...justifyContentStyle,
+        ...alignItemsStyle,
+        ...alignContentStyle,
+        ...flexFlowStyle,
         ...style,
       }}
       {...rest}>
