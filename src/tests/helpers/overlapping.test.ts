@@ -22,6 +22,6 @@ describe('checkOverlapping', () => {
   it('warns if there are multiple truthy values', () => {
     checkOverlapping('name', true, undefined, true)
     expect(global.console.warn).toHaveBeenCalledTimes(1)
-    expect(global.console.warn).toHaveBeenCalledWith('Multiple values have been provided for name.')
+    expect(global.console.warn).toHaveBeenCalledWith('[@react-css/flex] Multiple values have been provided for name.')
   })
 })
