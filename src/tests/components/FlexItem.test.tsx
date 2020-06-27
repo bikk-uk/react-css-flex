@@ -3,10 +3,10 @@ import React from 'react'
 import { render, fireEvent } from '@testing-library/react'
 
 // Helpers
-import { matchesSnapshot } from './helpers/snapshots'
+import { matchesSnapshot } from '../helpers/snapshots'
 
 // Tested Module
-import FlexItem from '../components/FlexItem'
+import FlexItem from '../../components/FlexItem'
 
 describe('<Flex /> - General', () => {
   it('renders an empty flex item', async () => {
@@ -168,16 +168,6 @@ describe('<FlexItem /> - align-self', () => {
     const snapshot = `
 <div
   style="align-self: stretch;"
-/>
-`
-    matchesSnapshot(component, snapshot)
-  })
-
-  test('align-self when manually set, overrides simple props', async () => {
-    const component = <FlexItem alignSelf='auto' alignSelfStretch alignSelfBaseline />
-    const snapshot = `
-<div
-  style="align-self: auto;"
 />
 `
     matchesSnapshot(component, snapshot)

@@ -2,10 +2,10 @@
 import React from 'react'
 
 // Helpers
-import { matchesSnapshot } from './helpers/snapshots'
+import { matchesSnapshot } from '../helpers/snapshots'
 
 // Tested Module (export named as it would be)
-import Flex from '../components/FlexWrapper'
+import Flex from '../../components/FlexWrapper'
 
 describe('<FlexWrapper />', () => {
   it('renders an empty flex container', async () => {

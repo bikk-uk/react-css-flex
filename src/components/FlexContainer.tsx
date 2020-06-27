@@ -8,7 +8,10 @@ import {
   AlignContentProperty,
 } from 'csstype'
 
-// Props
+// Helpers
+import { checkOverlapping } from '../helpers/overlapping'
+
+// Types
 import type { FlexContainerProps } from '../index'
 
 function FlexContainer({
@@ -77,6 +80,7 @@ function FlexContainer({
     // the manual version has been provided, that takes precedence
     if (flexDirection) return { flexDirection }
     // see if a specific value has been provided, first come first serve
+    checkOverlapping('flex-direction', row, rowReverse, column, columnReverse)
     let value: FlexDirectionProperty | null = null
     if (row) value = 'row'
     else if (rowReverse) value = 'row-reverse'
@@ -89,6 +93,7 @@ function FlexContainer({
     // the manual version has been provided, that takes precedence
     if (flexWrap) return { flexWrap }
     // see if a specific value has been provided, first come first serve
+    checkOverlapping('flex-wrap', wrap, noWrap, wrapReverse)
     let value: FlexWrapProperty | null = null
     if (wrap) value = 'wrap'
     else if (noWrap) value = 'nowrap'
@@ -100,6 +105,14 @@ function FlexContainer({
     // the manual version has been provided, that takes precedence
     if (justifyContent) return { justifyContent }
     // see if a specific value has been provided, first come first serve
+    checkOverlapping(
+      'justify-content',
+      justifyStart,
+      justifyEnd,
+      justifyCenter,
+      justifySpaceBetween,
+      justifySpaceAround,
+    )
     let value: JustifyContentProperty | null = null
     if (justifyStart) value = 'flex-start'
     else if (justifyEnd) value = 'flex-end'
@@ -113,6 +126,14 @@ function FlexContainer({
     // the manual version has been provided, that takes precedence
     if (alignItems) return { alignItems }
     // see if a specific value has been provided, first come first serve
+    checkOverlapping(
+      'align-items',
+      alignItemsStart,
+      alignItemsEnd,
+      alignItemsCenter,
+      alignItemsBaseline,
+      alignItemsStretch,
+    )
     let value: AlignItemsProperty | null = null
     if (alignItemsStart) value = 'flex-start'
     else if (alignItemsEnd) value = 'flex-end'
@@ -126,6 +147,15 @@ function FlexContainer({
     // the manual version has been provided, that takes precedence
     if (alignContent) return { alignContent }
     // see if a specific value has been provided, first come first serve
+    checkOverlapping(
+      'align-content',
+      alignContentStart,
+      alignContentEnd,
+      alignContentCenter,
+      alignContentSpaceBetween,
+      alignContentSpaceAround,
+      alignContentStretch,
+    )
     let value: AlignContentProperty | null = null
     if (alignContentStart) value = 'flex-start'
     else if (alignContentEnd) value = 'flex-end'

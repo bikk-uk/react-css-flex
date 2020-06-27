@@ -3,10 +3,10 @@ import React from 'react'
 import { render, fireEvent } from '@testing-library/react'
 
 // Helpers
-import { matchesSnapshot } from './helpers/snapshots'
+import { matchesSnapshot } from '../helpers/snapshots'
 
 // Tested Module
-import FlexContainer from '../components/FlexContainer'
+import FlexContainer from '../../components/FlexContainer'
 
 describe('<Flex /> - General', () => {
   it('renders an empty flex container', async () => {
@@ -135,16 +135,6 @@ describe('<Flex /> - flex-direction', () => {
   `
     matchesSnapshot(component, snapshot)
   })
-
-  test('flex-direction when manually set, overrides simple props', async () => {
-    const component = <FlexContainer flexDirection='column' row rowReverse />
-    const snapshot = `
-  <div
-    style="display: flex; flex-direction: column;"
-  />
-  `
-    matchesSnapshot(component, snapshot)
-  })
 })
 
 describe('<Flex /> - flex-wrap', () => {
@@ -173,16 +163,6 @@ describe('<Flex /> - flex-wrap', () => {
     const snapshot = `
   <div
     style="display: flex; flex-wrap: wrap-reverse;"
-  />
-  `
-    matchesSnapshot(component, snapshot)
-  })
-
-  test('flex-wrap when manually set, overrides simple props', async () => {
-    const component = <FlexContainer flexWrap='wrap' noWrap wrapReverse />
-    const snapshot = `
-  <div
-    style="display: flex; flex-wrap: wrap;"
   />
   `
     matchesSnapshot(component, snapshot)
@@ -239,16 +219,6 @@ describe('<Flex /> - justify-content', () => {
   `
     matchesSnapshot(component, snapshot)
   })
-
-  test('justify-content when manually set, overrides simple props', async () => {
-    const component = <FlexContainer justifyContent='center' justifyEnd justifySpaceAround />
-    const snapshot = `
-  <div
-    style="display: flex; justify-content: center;"
-  />
-  `
-    matchesSnapshot(component, snapshot)
-  })
 })
 
 describe('<Flex /> - align-items', () => {
@@ -297,16 +267,6 @@ describe('<Flex /> - align-items', () => {
     const snapshot = `
   <div
     style="display: flex; align-items: stretch;"
-  />
-  `
-    matchesSnapshot(component, snapshot)
-  })
-
-  test('align-items when manually set, overrides simple props', async () => {
-    const component = <FlexContainer alignItems='center' alignItemsBaseline alignItemsStretch />
-    const snapshot = `
-  <div
-    style="display: flex; align-items: center;"
   />
   `
     matchesSnapshot(component, snapshot)
@@ -369,16 +329,6 @@ describe('<Flex /> - align-content', () => {
     const snapshot = `
   <div
     style="display: flex; align-content: stretch;"
-  />
-  `
-    matchesSnapshot(component, snapshot)
-  })
-
-  test('align-content when manually set, overrides simple props', async () => {
-    const component = <FlexContainer alignContent='center' alignContentEnd alignContentStart />
-    const snapshot = `
-  <div
-    style="display: flex; align-content: center;"
   />
   `
     matchesSnapshot(component, snapshot)
