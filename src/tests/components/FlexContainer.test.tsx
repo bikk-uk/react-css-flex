@@ -8,6 +8,8 @@ import { matchesSnapshot } from '../helpers/snapshots'
 // Tested Module
 import FlexContainer from '../../components/FlexContainer'
 
+jest.spyOn(global.console, 'warn').mockImplementation(() => undefined)
+
 describe('<Flex /> - General', () => {
   it('renders an empty flex container', async () => {
     const component = <FlexContainer />
@@ -86,6 +88,16 @@ describe('<Flex /> - Inline', () => {
 })
 
 describe('<Flex /> - flex-direction', () => {
+  it('allows flex-direction to be manually set', async () => {
+    const component = <FlexContainer flexDirection='column' />
+    const snapshot = `
+  <div
+    style="display: flex; flex-direction: column;"
+  />
+  `
+    matchesSnapshot(component, snapshot)
+  })
+
   it('allows the flex-direction row to be set', async () => {
     const component = <FlexContainer row />
     const snapshot = `
@@ -126,18 +138,38 @@ describe('<Flex /> - flex-direction', () => {
     matchesSnapshot(component, snapshot)
   })
 
-  it('allows the flex-direction to be manually set', async () => {
-    const component = <FlexContainer flexDirection='column' />
-    const snapshot = `
-  <div
-    style="display: flex; flex-direction: column;"
-  />
-  `
-    matchesSnapshot(component, snapshot)
+  it('warns if multiple short values have been provided for flex-direction - part 1', async () => {
+    const component = <FlexContainer row rowReverse />
+
+    render(component)
+
+    const expectedMessage = '[@react-css/flex] Multiple values have been provided for flex-direction.'
+    expect(global.console.warn).toHaveBeenCalledTimes(1)
+    expect(global.console.warn).toHaveBeenCalledWith(expectedMessage)
+  })
+
+  it('warns if multiple short values have been provided for flex-direction - part 2', async () => {
+    const component = <FlexContainer column columnReverse />
+
+    render(component)
+
+    const expectedMessage = '[@react-css/flex] Multiple values have been provided for flex-direction.'
+    expect(global.console.warn).toHaveBeenCalledTimes(1)
+    expect(global.console.warn).toHaveBeenCalledWith(expectedMessage)
   })
 })
 
 describe('<Flex /> - flex-wrap', () => {
+  it('allows flex-wrap to be manually set', async () => {
+    const component = <FlexContainer flexWrap='nowrap' />
+    const snapshot = `
+  <div
+    style="display: flex; flex-wrap: nowrap;"
+  />
+  `
+    matchesSnapshot(component, snapshot)
+  })
+
   it('allows the flex-wrap wrap to be set', async () => {
     const component = <FlexContainer wrap />
     const snapshot = `
@@ -167,9 +199,39 @@ describe('<Flex /> - flex-wrap', () => {
   `
     matchesSnapshot(component, snapshot)
   })
+
+  it('warns if multiple short values have been provided for flex-wrap - part 1', async () => {
+    const component = <FlexContainer wrap noWrap />
+
+    render(component)
+
+    const expectedMessage = '[@react-css/flex] Multiple values have been provided for flex-wrap.'
+    expect(global.console.warn).toHaveBeenCalledTimes(1)
+    expect(global.console.warn).toHaveBeenCalledWith(expectedMessage)
+  })
+
+  it('warns if multiple short values have been provided for flex-wrap - part 2', async () => {
+    const component = <FlexContainer noWrap wrapReverse />
+
+    render(component)
+
+    const expectedMessage = '[@react-css/flex] Multiple values have been provided for flex-wrap.'
+    expect(global.console.warn).toHaveBeenCalledTimes(1)
+    expect(global.console.warn).toHaveBeenCalledWith(expectedMessage)
+  })
 })
 
 describe('<Flex /> - justify-content', () => {
+  it('allows justify-content to be manually set', async () => {
+    const component = <FlexContainer justifyContent='flex-start' />
+    const snapshot = `
+  <div
+    style="display: flex; justify-content: flex-start;"
+  />
+  `
+    matchesSnapshot(component, snapshot)
+  })
+
   it('allows the justify-content flex-start to be set', async () => {
     const component = <FlexContainer justifyStart />
     const snapshot = `
@@ -219,9 +281,49 @@ describe('<Flex /> - justify-content', () => {
   `
     matchesSnapshot(component, snapshot)
   })
+
+  it('warns if multiple short values have been provided for justify-content - part 1', async () => {
+    const component = <FlexContainer justifyStart justifyEnd />
+
+    render(component)
+
+    const expectedMessage = '[@react-css/flex] Multiple values have been provided for justify-content.'
+    expect(global.console.warn).toHaveBeenCalledTimes(1)
+    expect(global.console.warn).toHaveBeenCalledWith(expectedMessage)
+  })
+
+  it('warns if multiple short values have been provided for justify-content - part 2', async () => {
+    const component = <FlexContainer justifyCenter justifySpaceBetween />
+
+    render(component)
+
+    const expectedMessage = '[@react-css/flex] Multiple values have been provided for justify-content.'
+    expect(global.console.warn).toHaveBeenCalledTimes(1)
+    expect(global.console.warn).toHaveBeenCalledWith(expectedMessage)
+  })
+
+  it('warns if multiple short values have been provided for justify-content - part 3', async () => {
+    const component = <FlexContainer justifySpaceBetween justifySpaceAround />
+
+    render(component)
+
+    const expectedMessage = '[@react-css/flex] Multiple values have been provided for justify-content.'
+    expect(global.console.warn).toHaveBeenCalledTimes(1)
+    expect(global.console.warn).toHaveBeenCalledWith(expectedMessage)
+  })
 })
 
 describe('<Flex /> - align-items', () => {
+  it('allows align-items to be manually set', async () => {
+    const component = <FlexContainer alignItems='flex-start' />
+    const snapshot = `
+  <div
+    style="display: flex; align-items: flex-start;"
+  />
+  `
+    matchesSnapshot(component, snapshot)
+  })
+
   it('allows the align-items flex-start to be set', async () => {
     const component = <FlexContainer alignItemsStart />
     const snapshot = `
@@ -271,9 +373,49 @@ describe('<Flex /> - align-items', () => {
   `
     matchesSnapshot(component, snapshot)
   })
+
+  it('warns if multiple short values have been provided for align-items - part 1', async () => {
+    const component = <FlexContainer alignItemsStart alignItemsEnd />
+
+    render(component)
+
+    const expectedMessage = '[@react-css/flex] Multiple values have been provided for align-items.'
+    expect(global.console.warn).toHaveBeenCalledTimes(1)
+    expect(global.console.warn).toHaveBeenCalledWith(expectedMessage)
+  })
+
+  it('warns if multiple short values have been provided for align-items - part 2', async () => {
+    const component = <FlexContainer alignItemsCenter alignItemsBaseline />
+
+    render(component)
+
+    const expectedMessage = '[@react-css/flex] Multiple values have been provided for align-items.'
+    expect(global.console.warn).toHaveBeenCalledTimes(1)
+    expect(global.console.warn).toHaveBeenCalledWith(expectedMessage)
+  })
+
+  it('warns if multiple short values have been provided for align-items - part 3', async () => {
+    const component = <FlexContainer alignItemsBaseline alignItemsStretch />
+
+    render(component)
+
+    const expectedMessage = '[@react-css/flex] Multiple values have been provided for align-items.'
+    expect(global.console.warn).toHaveBeenCalledTimes(1)
+    expect(global.console.warn).toHaveBeenCalledWith(expectedMessage)
+  })
 })
 
 describe('<Flex /> - align-content', () => {
+  it('allows align-content to be manually set', async () => {
+    const component = <FlexContainer alignContent='flex-start' />
+    const snapshot = `
+  <div
+    style="display: flex; align-content: flex-start;"
+  />
+  `
+    matchesSnapshot(component, snapshot)
+  })
+
   it('allows the align-content flex-start to be set', async () => {
     const component = <FlexContainer alignContentStart />
     const snapshot = `
@@ -332,6 +474,36 @@ describe('<Flex /> - align-content', () => {
   />
   `
     matchesSnapshot(component, snapshot)
+  })
+
+  it('warns if multiple short values have been provided for align-content - part 1', async () => {
+    const component = <FlexContainer alignContentStart alignContentEnd />
+
+    render(component)
+
+    const expectedMessage = '[@react-css/flex] Multiple values have been provided for align-content.'
+    expect(global.console.warn).toHaveBeenCalledTimes(1)
+    expect(global.console.warn).toHaveBeenCalledWith(expectedMessage)
+  })
+
+  it('warns if multiple short values have been provided for align-content - part 2', async () => {
+    const component = <FlexContainer alignContentCenter alignContentSpaceBetween />
+
+    render(component)
+
+    const expectedMessage = '[@react-css/flex] Multiple values have been provided for align-content.'
+    expect(global.console.warn).toHaveBeenCalledTimes(1)
+    expect(global.console.warn).toHaveBeenCalledWith(expectedMessage)
+  })
+
+  it('warns if multiple short values have been provided for align-content - part 3', async () => {
+    const component = <FlexContainer alignContentSpaceAround alignContentStretch />
+
+    render(component)
+
+    const expectedMessage = '[@react-css/flex] Multiple values have been provided for align-content.'
+    expect(global.console.warn).toHaveBeenCalledTimes(1)
+    expect(global.console.warn).toHaveBeenCalledWith(expectedMessage)
   })
 })
 
