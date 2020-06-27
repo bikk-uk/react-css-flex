@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importDefault(require("react"));
+const overlapping_1 = require("../helpers/overlapping");
 function FlexItem({ order, grow, shrink, basis, flex, alignSelfAuto, alignSelfStart, alignSelfEnd, alignSelfCenter, alignSelfBaseline, alignSelfStretch, alignSelf, style = {}, children, ...rest }) {
     const orderStyle = react_1.default.useMemo(() => {
         return order !== undefined ? { order: order } : {};
@@ -23,6 +24,7 @@ function FlexItem({ order, grow, shrink, basis, flex, alignSelfAuto, alignSelfSt
     const alignSelfStyle = react_1.default.useMemo(() => {
         if (alignSelf)
             return { alignSelf };
+        overlapping_1.checkOverlapping('align-self', alignSelfAuto, alignSelfStart, alignSelfEnd, alignSelfCenter, alignSelfBaseline, alignSelfStretch);
         let value = null;
         if (alignSelfAuto)
             value = 'auto';

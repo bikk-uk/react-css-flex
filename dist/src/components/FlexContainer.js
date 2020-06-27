@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importDefault(require("react"));
+const overlapping_1 = require("../helpers/overlapping");
 function FlexContainer({ inline, row, rowReverse, column, columnReverse, flexDirection, wrap, noWrap, wrapReverse, flexWrap, justifyStart, justifyEnd, justifyCenter, justifySpaceBetween, justifySpaceAround, justifyContent, alignItemsStart, alignItemsEnd, alignItemsCenter, alignItemsBaseline, alignItemsStretch, alignItems, alignContentStart, alignContentEnd, alignContentCenter, alignContentSpaceBetween, alignContentSpaceAround, alignContentStretch, alignContent, flow, style = {}, children, ...rest }) {
     const displayStyle = react_1.default.useMemo(() => ({
         display: inline ? 'inline-flex' : 'flex',
@@ -11,6 +12,7 @@ function FlexContainer({ inline, row, rowReverse, column, columnReverse, flexDir
     const flexDirectionStyle = react_1.default.useMemo(() => {
         if (flexDirection)
             return { flexDirection };
+        overlapping_1.checkOverlapping('flex-direction', row, rowReverse, column, columnReverse);
         let value = null;
         if (row)
             value = 'row';
@@ -25,6 +27,7 @@ function FlexContainer({ inline, row, rowReverse, column, columnReverse, flexDir
     const flexWrapStyle = react_1.default.useMemo(() => {
         if (flexWrap)
             return { flexWrap };
+        overlapping_1.checkOverlapping('flex-wrap', wrap, noWrap, wrapReverse);
         let value = null;
         if (wrap)
             value = 'wrap';
@@ -37,6 +40,7 @@ function FlexContainer({ inline, row, rowReverse, column, columnReverse, flexDir
     const justifyContentStyle = react_1.default.useMemo(() => {
         if (justifyContent)
             return { justifyContent };
+        overlapping_1.checkOverlapping('justify-content', justifyStart, justifyEnd, justifyCenter, justifySpaceBetween, justifySpaceAround);
         let value = null;
         if (justifyStart)
             value = 'flex-start';
@@ -53,6 +57,7 @@ function FlexContainer({ inline, row, rowReverse, column, columnReverse, flexDir
     const alignItemsStyle = react_1.default.useMemo(() => {
         if (alignItems)
             return { alignItems };
+        overlapping_1.checkOverlapping('align-items', alignItemsStart, alignItemsEnd, alignItemsCenter, alignItemsBaseline, alignItemsStretch);
         let value = null;
         if (alignItemsStart)
             value = 'flex-start';
@@ -69,6 +74,7 @@ function FlexContainer({ inline, row, rowReverse, column, columnReverse, flexDir
     const alignContentStyle = react_1.default.useMemo(() => {
         if (alignContent)
             return { alignContent };
+        overlapping_1.checkOverlapping('align-content', alignContentStart, alignContentEnd, alignContentCenter, alignContentSpaceBetween, alignContentSpaceAround, alignContentStretch);
         let value = null;
         if (alignContentStart)
             value = 'flex-start';

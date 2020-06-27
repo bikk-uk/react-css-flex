@@ -66,7 +66,7 @@ To simplify, you can use:
 <Flex columnReverse></Flex> // flex-direction: column-reverse;
 ```
 
-_These are first come first served, in this order. They will be ignored if you provide it manually via the full `flexDirection` prop._
+_These are first come first served, in this order. They cannot be used if you have already provided the `flexDirection` prop. Providing multiple will result in a console warning_
 
 #### Flex Wrap
 
@@ -86,7 +86,7 @@ To simplify, you can use:
 <Flex wrapReverse></Flex> // flex-wrap: wrap-reverse;
 ```
 
-_These are first come first served, in this order. They will be ignored if you provide it manually via the full `flexWrap` prop._
+_These are first come first served, in this order. They cannot be used if you have already provided the `flexWrap` prop. Providing multiple will result in a console warning_
 
 #### Justify Content
 
@@ -108,7 +108,7 @@ To simplify, you can use:
 <Flex justifySpaceAround></Flex> // justify-content: space-around;
 ```
 
-_These are first come first served, in this order. They will be ignored if you provide it manually via the full `justifyContent` prop._
+_These are first come first served, in this order. They cannot be used if you have already provided the `justifyContent` prop. Providing multiple will result in a console warning_
 
 #### Align Items
 
@@ -130,7 +130,7 @@ To simplify, you can use:
 <Flex alignItemsStretch></Flex> // align-items: stretch;
 ```
 
-_These are first come first served, in this order. They will be ignored if you provide it manually via the full `alignItems` prop._
+_These are first come first served, in this order. They cannot be used if you have already provided the `alignItems` prop. Providing multiple will result in a console warning_
 
 #### Align Content
 
@@ -153,7 +153,7 @@ To simplify, you can use:
 <Flex alignContentStretch></Flex> // align-content: stretch;
 ```
 
-_These are first come first served, in this order. They will be ignored if you provide it manually via the full `alignContent` prop._
+_These are first come first served, in this order. They cannot be used if you have already provided the `alignContent` prop. Providing multiple will result in a console warning_
 
 #### Flex Flow (Shorthand)
 
@@ -264,9 +264,11 @@ To simplify, you can use:
 <Flex.Item alignSelfStretch></Flex.Item> // align-self: stretch;
 ```
 
-_These are first come first served, in this order. They will be ignored if you provide it manually via the full `alignSelf` prop._
+_These are first come first served, in this order. They cannot be used if you have already provided the `alignSelf` prop. Providing multiple will result in a console warning_
 
 ## Notes
+
+### Exposed Props
 
 All the React `div` props and TypeScript definitions are exposed/passed through. This allows for an identical development experience whilst being able to ignore any Flexbox related CSS.
 
@@ -281,6 +283,8 @@ All the React `div` props and TypeScript definitions are exposed/passed through.
 </Flex>
 ```
 
+### Style Override
+
 CSS provided via `styles` will be applied last, this allows all generated CSS to be overridden.
 
 ```tsx
@@ -294,3 +298,9 @@ CSS provided via `styles` will be applied last, this allows all generated CSS to
   </Flex.Item>
 </Flex>
 ```
+
+### Limitations
+
+Whilst the type definitions prevent you from using both the short and manual prop for each style, it is not feasible to expand this to stop you from being able to provide more than one of the short props for each style. These were implemented but due to the possible number of combinations (over 5000), TypeScript would not transpile it and the developer experience was poor as VS Code tried to work out the Props via IntelliSense.
+
+To help prevent accidentally doing this, a warning will log if you have provided multiple values that would overlap/contradict.

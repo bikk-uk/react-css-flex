@@ -2,6 +2,9 @@
 import React from 'react'
 import type { AlignSelfProperty } from 'csstype'
 
+// Helpers
+import { checkOverlapping } from '../helpers/overlapping'
+
 // Types
 import type { FlexItemProps } from '../index'
 
@@ -60,6 +63,15 @@ function FlexItem({
     // the manual version has been provided, that takes precedence
     if (alignSelf) return { alignSelf }
     // see if a specific value has been provided, first come first serve
+    checkOverlapping(
+      'align-self',
+      alignSelfAuto,
+      alignSelfStart,
+      alignSelfEnd,
+      alignSelfCenter,
+      alignSelfBaseline,
+      alignSelfStretch,
+    )
     let value: AlignSelfProperty | null = null
     if (alignSelfAuto) value = 'auto'
     else if (alignSelfStart) value = 'flex-start'
