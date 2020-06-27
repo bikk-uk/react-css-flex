@@ -8,6 +8,8 @@ import { matchesSnapshot } from '../helpers/snapshots'
 // Tested Module
 import FlexItem from '../../components/FlexItem'
 
+jest.spyOn(global.console, 'warn').mockImplementation(() => undefined)
+
 describe('<Flex /> - General', () => {
   it('renders an empty flex item', async () => {
     const component = <FlexItem />
@@ -113,6 +115,16 @@ describe('<FlexItem /> - flex', () => {
 })
 
 describe('<FlexItem /> - align-self', () => {
+  it('allows the align-self to be manually set', async () => {
+    const component = <FlexItem alignSelf='flex-end' />
+    const snapshot = `
+<div
+  style="align-self: flex-end;"
+/>
+`
+    matchesSnapshot(component, snapshot)
+  })
+
   it('allows the align-self auto to be set', async () => {
     const component = <FlexItem alignSelfAuto />
     const snapshot = `
@@ -171,5 +183,35 @@ describe('<FlexItem /> - align-self', () => {
 />
 `
     matchesSnapshot(component, snapshot)
+  })
+
+  it('warns if multiple short values have been provided for align-self - part 1', async () => {
+    const component = <FlexItem alignSelfAuto alignSelfStart />
+
+    render(component)
+
+    const expectedMessage = '[@react-css/flex] Multiple values have been provided for align-self.'
+    expect(global.console.warn).toHaveBeenCalledTimes(1)
+    expect(global.console.warn).toHaveBeenCalledWith(expectedMessage)
+  })
+
+  it('warns if multiple short values have been provided for align-self - part 2', async () => {
+    const component = <FlexItem alignSelfEnd alignSelfCenter />
+
+    render(component)
+
+    const expectedMessage = '[@react-css/flex] Multiple values have been provided for align-self.'
+    expect(global.console.warn).toHaveBeenCalledTimes(1)
+    expect(global.console.warn).toHaveBeenCalledWith(expectedMessage)
+  })
+
+  it('warns if multiple short values have been provided for align-self - part 3', async () => {
+    const component = <FlexItem alignSelfBaseline alignSelfStretch />
+
+    render(component)
+
+    const expectedMessage = '[@react-css/flex] Multiple values have been provided for align-self.'
+    expect(global.console.warn).toHaveBeenCalledTimes(1)
+    expect(global.console.warn).toHaveBeenCalledWith(expectedMessage)
   })
 })
