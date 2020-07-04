@@ -10,7 +10,7 @@ import FlexItem from '../../components/FlexItem'
 
 jest.spyOn(global.console, 'warn').mockImplementation(() => undefined)
 
-describe('<Flex /> - General', () => {
+describe('<FlexItem /> - General', () => {
   it('renders an empty flex item', async () => {
     const component = <FlexItem />
     const snapshot = `<div />`
