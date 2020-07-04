@@ -10,7 +10,7 @@ import FlexContainer from '../../components/FlexContainer'
 
 jest.spyOn(global.console, 'warn').mockImplementation(() => undefined)
 
-describe('<Flex /> - General', () => {
+describe('<FlexContainer /> - General', () => {
   it('renders an empty flex container', async () => {
     const component = <FlexContainer />
     const snapshot = `
@@ -75,7 +75,7 @@ describe('<Flex /> - General', () => {
   })
 })
 
-describe('<Flex /> - Inline', () => {
+describe('<FlexContainer /> - Inline', () => {
   it('renders an empty inline flex container', async () => {
     const component = <FlexContainer inline />
     const snapshot = `
@@ -87,7 +87,7 @@ describe('<Flex /> - Inline', () => {
   })
 })
 
-describe('<Flex /> - flex-direction', () => {
+describe('<FlexContainer /> - flex-direction', () => {
   it('allows flex-direction to be manually set', async () => {
     const component = <FlexContainer flexDirection='column' />
     const snapshot = `
@@ -159,7 +159,7 @@ describe('<Flex /> - flex-direction', () => {
   })
 })
 
-describe('<Flex /> - flex-wrap', () => {
+describe('<FlexContainer /> - flex-wrap', () => {
   it('allows flex-wrap to be manually set', async () => {
     const component = <FlexContainer flexWrap='nowrap' />
     const snapshot = `
@@ -221,7 +221,7 @@ describe('<Flex /> - flex-wrap', () => {
   })
 })
 
-describe('<Flex /> - justify-content', () => {
+describe('<FlexContainer /> - justify-content', () => {
   it('allows justify-content to be manually set', async () => {
     const component = <FlexContainer justifyContent='flex-start' />
     const snapshot = `
@@ -313,7 +313,7 @@ describe('<Flex /> - justify-content', () => {
   })
 })
 
-describe('<Flex /> - align-items', () => {
+describe('<FlexContainer /> - align-items', () => {
   it('allows align-items to be manually set', async () => {
     const component = <FlexContainer alignItems='flex-start' />
     const snapshot = `
@@ -405,7 +405,7 @@ describe('<Flex /> - align-items', () => {
   })
 })
 
-describe('<Flex /> - align-content', () => {
+describe('<FlexContainer /> - align-content', () => {
   it('allows align-content to be manually set', async () => {
     const component = <FlexContainer alignContent='flex-start' />
     const snapshot = `
@@ -507,7 +507,7 @@ describe('<Flex /> - align-content', () => {
   })
 })
 
-describe('<Flex /> - flex-flow', () => {
+describe('<FlexContainer /> - flex-flow', () => {
   it('allows flex-flow to be set', async () => {
     const component = <FlexContainer flow='row nowrap' />
     const snapshot = `
