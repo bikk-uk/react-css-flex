@@ -2,7 +2,7 @@
 import React from 'react'
 
 // Props
-import type { FlexContainerProps } from '../../index'
+import type { FlexContainerProps } from '../index'
 
 // Components
 import FlexItem from './FlexItem'
