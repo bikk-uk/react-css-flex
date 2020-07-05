@@ -66,7 +66,7 @@ To simplify, you can use:
 <Flex columnReverse></Flex> // flex-direction: column-reverse;
 ```
 
-_These are first come first served, in this order. They cannot be used if you have already provided the `flexDirection` prop. Providing multiple will result in a console warning_
+_These are first come first served, in this order. They cannot be used if you have already provided the `flexDirection` prop. Providing multiple will result in a console warning._
 
 #### Flex Wrap
 
@@ -86,7 +86,7 @@ To simplify, you can use:
 <Flex wrapReverse></Flex> // flex-wrap: wrap-reverse;
 ```
 
-_These are first come first served, in this order. They cannot be used if you have already provided the `flexWrap` prop. Providing multiple will result in a console warning_
+_These are first come first served, in this order. They cannot be used if you have already provided the `flexWrap` prop. Providing multiple will result in a console warning._
 
 #### Justify Content
 
@@ -108,7 +108,7 @@ To simplify, you can use:
 <Flex justifySpaceAround></Flex> // justify-content: space-around;
 ```
 
-_These are first come first served, in this order. They cannot be used if you have already provided the `justifyContent` prop. Providing multiple will result in a console warning_
+_These are first come first served, in this order. They cannot be used if you have already provided the `justifyContent` prop. Providing multiple will result in a console warning._
 
 #### Align Items
 
@@ -130,7 +130,7 @@ To simplify, you can use:
 <Flex alignItemsStretch></Flex> // align-items: stretch;
 ```
 
-_These are first come first served, in this order. They cannot be used if you have already provided the `alignItems` prop. Providing multiple will result in a console warning_
+_These are first come first served, in this order. They cannot be used if you have already provided the `alignItems` prop. Providing multiple will result in a console warning._
 
 #### Align Content
 
@@ -153,7 +153,7 @@ To simplify, you can use:
 <Flex alignContentStretch></Flex> // align-content: stretch;
 ```
 
-_These are first come first served, in this order. They cannot be used if you have already provided the `alignContent` prop. Providing multiple will result in a console warning_
+_These are first come first served, in this order. They cannot be used if you have already provided the `alignContent` prop. Providing multiple will result in a console warning._
 
 #### Flex Flow (Shorthand)
 
@@ -264,7 +264,7 @@ To simplify, you can use:
 <Flex.Item alignSelfStretch></Flex.Item> // align-self: stretch;
 ```
 
-_These are first come first served, in this order. They cannot be used if you have already provided the `alignSelf` prop. Providing multiple will result in a console warning_
+_These are first come first served, in this order. They cannot be used if you have already provided the `alignSelf` prop. Providing multiple will result in a console warning._
 
 ## Notes
 
