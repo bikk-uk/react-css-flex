@@ -13,7 +13,7 @@ import { checkOverlapping } from '../helpers/overlapping'
 import { trimUndefined } from '../helpers/trim'
 
 // Types
-import type { FlexContainerProps, IndexableCSS } from '../index'
+import type { FlexContainerProps } from '../index'
 
 function FlexContainer({
   // 'display'
@@ -179,7 +179,7 @@ function FlexContainer({
     return flow !== undefined ? { flexFlow: flow } : {}
   }, [flow])
 
-  const combinedStyle: IndexableCSS = trimUndefined({
+  const combinedStyle = trimUndefined({
     ...displayStyle,
     ...flexDirectionStyle,
     ...flexWrapStyle,

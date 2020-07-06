@@ -7,7 +7,7 @@ import { checkOverlapping } from '../helpers/overlapping'
 import { trimUndefined } from '../helpers/trim'
 
 // Types
-import type { FlexItemProps, IndexableCSS } from '../index'
+import type { FlexItemProps } from '../index'
 
 function FlexItem({
   // 'order'
@@ -83,7 +83,7 @@ function FlexItem({
     return value ? { alignSelf: value } : {}
   }, [alignSelf, alignSelfAuto, alignSelfStart, alignSelfEnd, alignSelfCenter, alignSelfBaseline, alignSelfStretch])
 
-  const combinedStyle: IndexableCSS = trimUndefined({
+  const combinedStyle = trimUndefined({
     ...orderStyle,
     ...flexGrowStyle,
     ...flexShrinkStyle,
