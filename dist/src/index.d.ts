@@ -12,6 +12,9 @@ import type {
   AlignSelfProperty,
 } from 'csstype'
 declare type DivProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+export interface IndexableCSS extends React.CSSProperties {
+  [key: string]: string | number | undefined
+}
 declare type DisplayCSS = {
   inline?: boolean
 }

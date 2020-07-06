@@ -40,14 +40,16 @@ function FlexItem({ order, grow, shrink, basis, flex, alignSelfAuto, alignSelfSt
             value = 'stretch';
         return value ? { alignSelf: value } : {};
     }, [alignSelf, alignSelfAuto, alignSelfStart, alignSelfEnd, alignSelfCenter, alignSelfBaseline, alignSelfStretch]);
-    return (react_1.default.createElement("div", Object.assign({ style: {
-            ...orderStyle,
-            ...flexGrowStyle,
-            ...flexShrinkStyle,
-            ...flexBasisStyle,
-            ...flexStyle,
-            ...alignSelfStyle,
-            ...style,
-        } }, rest), children));
+    const combinedStyle = {
+        ...orderStyle,
+        ...flexGrowStyle,
+        ...flexShrinkStyle,
+        ...flexBasisStyle,
+        ...flexStyle,
+        ...alignSelfStyle,
+        ...style,
+    };
+    Object.keys(combinedStyle).forEach((key) => combinedStyle[key] === undefined && delete combinedStyle[key]);
+    return (react_1.default.createElement("div", Object.assign({ style: combinedStyle }, rest), children));
 }
 exports.default = FlexItem;

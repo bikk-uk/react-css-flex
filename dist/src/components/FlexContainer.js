@@ -101,15 +101,17 @@ function FlexContainer({ inline, row, rowReverse, column, columnReverse, flexDir
     const flexFlowStyle = react_1.default.useMemo(() => {
         return flow !== undefined ? { flexFlow: flow } : {};
     }, [flow]);
-    return (react_1.default.createElement("div", Object.assign({ style: {
-            ...displayStyle,
-            ...flexDirectionStyle,
-            ...flexWrapStyle,
-            ...justifyContentStyle,
-            ...alignItemsStyle,
-            ...alignContentStyle,
-            ...flexFlowStyle,
-            ...style,
-        } }, rest), children));
+    const combinedStyle = {
+        ...displayStyle,
+        ...flexDirectionStyle,
+        ...flexWrapStyle,
+        ...justifyContentStyle,
+        ...alignItemsStyle,
+        ...alignContentStyle,
+        ...flexFlowStyle,
+        ...style,
+    };
+    Object.keys(combinedStyle).forEach((key) => combinedStyle[key] === undefined && delete combinedStyle[key]);
+    return (react_1.default.createElement("div", Object.assign({ style: combinedStyle }, rest), children));
 }
 exports.default = FlexContainer;
