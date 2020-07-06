@@ -10,6 +10,7 @@ import type {
 
 // Helpers
 import { checkOverlapping } from '../helpers/overlapping'
+import { trimUndefined } from '../helpers/trim'
 
 // Types
 import type { FlexContainerProps, IndexableCSS } from '../index'
@@ -178,7 +179,7 @@ function FlexContainer({
     return flow !== undefined ? { flexFlow: flow } : {}
   }, [flow])
 
-  const combinedStyle: IndexableCSS = {
+  const combinedStyle: IndexableCSS = trimUndefined({
     ...displayStyle,
     ...flexDirectionStyle,
     ...flexWrapStyle,
@@ -187,10 +188,7 @@ function FlexContainer({
     ...alignContentStyle,
     ...flexFlowStyle,
     ...style,
-  }
-
-  // remove all CSS Properties that are undefined
-  Object.keys(combinedStyle).forEach((key) => combinedStyle[key] === undefined && delete combinedStyle[key])
+  })
 
   return (
     <div style={combinedStyle} {...rest}>
