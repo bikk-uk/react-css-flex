@@ -1,6 +1,6 @@
 // Libraries
 import React from 'react'
-import {
+import type {
   FlexDirectionProperty,
   FlexWrapProperty,
   JustifyContentProperty,
@@ -12,7 +12,7 @@ import {
 import { checkOverlapping } from '../helpers/overlapping'
 
 // Types
-import type { FlexContainerProps } from '../index'
+import type { FlexContainerProps, IndexableCSS } from '../index'
 
 function FlexContainer({
   // 'display'
@@ -178,19 +178,22 @@ function FlexContainer({
     return flow !== undefined ? { flexFlow: flow } : {}
   }, [flow])
 
+  const combinedStyle: IndexableCSS = {
+    ...displayStyle,
+    ...flexDirectionStyle,
+    ...flexWrapStyle,
+    ...justifyContentStyle,
+    ...alignItemsStyle,
+    ...alignContentStyle,
+    ...flexFlowStyle,
+    ...style,
+  }
+
+  // remove all CSS Properties that are undefined
+  Object.keys(combinedStyle).forEach((key) => combinedStyle[key] === undefined && delete combinedStyle[key])
+
   return (
-    <div
-      style={{
-        ...displayStyle,
-        ...flexDirectionStyle,
-        ...flexWrapStyle,
-        ...justifyContentStyle,
-        ...alignItemsStyle,
-        ...alignContentStyle,
-        ...flexFlowStyle,
-        ...style,
-      }}
-      {...rest}>
+    <div style={combinedStyle} {...rest}>
       {children}
     </div>
   )

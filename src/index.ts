@@ -14,6 +14,10 @@ import type {
 
 type DivProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
+export interface IndexableCSS extends React.CSSProperties {
+  [key: string]: string | number | undefined
+}
+
 type DisplayCSS = {
   // 'display'
   inline?: boolean
