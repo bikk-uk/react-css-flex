@@ -1,6 +1,6 @@
 // Libraries
 import React from 'react'
-import {
+import type {
   FlexDirectionProperty,
   FlexWrapProperty,
   JustifyContentProperty,
@@ -10,6 +10,7 @@ import {
 
 // Helpers
 import { checkOverlapping } from '../helpers/overlapping'
+import { trimUndefined } from '../helpers/trim'
 
 // Types
 import type { FlexContainerProps } from '../index'
@@ -178,19 +179,19 @@ function FlexContainer({
     return flow !== undefined ? { flexFlow: flow } : {}
   }, [flow])
 
+  const combinedStyle = trimUndefined({
+    ...displayStyle,
+    ...flexDirectionStyle,
+    ...flexWrapStyle,
+    ...justifyContentStyle,
+    ...alignItemsStyle,
+    ...alignContentStyle,
+    ...flexFlowStyle,
+    ...style,
+  })
+
   return (
-    <div
-      style={{
-        ...displayStyle,
-        ...flexDirectionStyle,
-        ...flexWrapStyle,
-        ...justifyContentStyle,
-        ...alignItemsStyle,
-        ...alignContentStyle,
-        ...flexFlowStyle,
-        ...style,
-      }}
-      {...rest}>
+    <div style={combinedStyle} {...rest}>
       {children}
     </div>
   )

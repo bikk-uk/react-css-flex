@@ -4,6 +4,7 @@ import type { AlignSelfProperty } from 'csstype'
 
 // Helpers
 import { checkOverlapping } from '../helpers/overlapping'
+import { trimUndefined } from '../helpers/trim'
 
 // Types
 import type { FlexItemProps } from '../index'
@@ -82,18 +83,18 @@ function FlexItem({
     return value ? { alignSelf: value } : {}
   }, [alignSelf, alignSelfAuto, alignSelfStart, alignSelfEnd, alignSelfCenter, alignSelfBaseline, alignSelfStretch])
 
+  const combinedStyle = trimUndefined({
+    ...orderStyle,
+    ...flexGrowStyle,
+    ...flexShrinkStyle,
+    ...flexBasisStyle,
+    ...flexStyle,
+    ...alignSelfStyle,
+    ...style,
+  })
+
   return (
-    <div
-      style={{
-        ...orderStyle,
-        ...flexGrowStyle,
-        ...flexShrinkStyle,
-        ...flexBasisStyle,
-        ...flexStyle,
-        ...alignSelfStyle,
-        ...style,
-      }}
-      {...rest}>
+    <div style={combinedStyle} {...rest}>
       {children}
     </div>
   )

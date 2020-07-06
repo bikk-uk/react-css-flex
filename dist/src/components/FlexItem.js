@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importDefault(require("react"));
 const overlapping_1 = require("../helpers/overlapping");
+const trim_1 = require("../helpers/trim");
 function FlexItem({ order, grow, shrink, basis, flex, alignSelfAuto, alignSelfStart, alignSelfEnd, alignSelfCenter, alignSelfBaseline, alignSelfStretch, alignSelf, style = {}, children, ...rest }) {
     const orderStyle = react_1.default.useMemo(() => {
         return order !== undefined ? { order: order } : {};
@@ -40,14 +41,15 @@ function FlexItem({ order, grow, shrink, basis, flex, alignSelfAuto, alignSelfSt
             value = 'stretch';
         return value ? { alignSelf: value } : {};
     }, [alignSelf, alignSelfAuto, alignSelfStart, alignSelfEnd, alignSelfCenter, alignSelfBaseline, alignSelfStretch]);
-    return (react_1.default.createElement("div", Object.assign({ style: {
-            ...orderStyle,
-            ...flexGrowStyle,
-            ...flexShrinkStyle,
-            ...flexBasisStyle,
-            ...flexStyle,
-            ...alignSelfStyle,
-            ...style,
-        } }, rest), children));
+    const combinedStyle = trim_1.trimUndefined({
+        ...orderStyle,
+        ...flexGrowStyle,
+        ...flexShrinkStyle,
+        ...flexBasisStyle,
+        ...flexStyle,
+        ...alignSelfStyle,
+        ...style,
+    });
+    return (react_1.default.createElement("div", Object.assign({ style: combinedStyle }, rest), children));
 }
 exports.default = FlexItem;
