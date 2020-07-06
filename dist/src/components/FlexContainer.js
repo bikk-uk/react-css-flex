@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = __importDefault(require("react"));
 const overlapping_1 = require("../helpers/overlapping");
+const trim_1 = require("../helpers/trim");
 function FlexContainer({ inline, row, rowReverse, column, columnReverse, flexDirection, wrap, noWrap, wrapReverse, flexWrap, justifyStart, justifyEnd, justifyCenter, justifySpaceBetween, justifySpaceAround, justifyContent, alignItemsStart, alignItemsEnd, alignItemsCenter, alignItemsBaseline, alignItemsStretch, alignItems, alignContentStart, alignContentEnd, alignContentCenter, alignContentSpaceBetween, alignContentSpaceAround, alignContentStretch, alignContent, flow, style = {}, children, ...rest }) {
     const displayStyle = react_1.default.useMemo(() => ({
         display: inline ? 'inline-flex' : 'flex',
@@ -101,7 +102,7 @@ function FlexContainer({ inline, row, rowReverse, column, columnReverse, flexDir
     const flexFlowStyle = react_1.default.useMemo(() => {
         return flow !== undefined ? { flexFlow: flow } : {};
     }, [flow]);
-    const combinedStyle = {
+    const combinedStyle = trim_1.trimUndefined({
         ...displayStyle,
         ...flexDirectionStyle,
         ...flexWrapStyle,
@@ -110,8 +111,7 @@ function FlexContainer({ inline, row, rowReverse, column, columnReverse, flexDir
         ...alignContentStyle,
         ...flexFlowStyle,
         ...style,
-    };
-    Object.keys(combinedStyle).forEach((key) => combinedStyle[key] === undefined && delete combinedStyle[key]);
+    });
     return (react_1.default.createElement("div", Object.assign({ style: combinedStyle }, rest), children));
 }
 exports.default = FlexContainer;
