@@ -1,16 +1,5 @@
 // Libraries
-import type {
-  FlexDirectionProperty,
-  FlexWrapProperty,
-  JustifyContentProperty,
-  AlignItemsProperty,
-  AlignContentProperty,
-  FlexFlowProperty,
-  GlobalsNumber,
-  FlexBasisProperty,
-  FlexProperty,
-  AlignSelfProperty,
-} from 'csstype'
+import type { Property } from 'csstype'
 
 type DivProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
@@ -38,7 +27,7 @@ type FlexDirectionCSS =
       rowReverse?: never
       column?: never
       columnReverse?: never
-      flexDirection?: FlexDirectionProperty
+      flexDirection?: Property.FlexDirection
     }
 
 type FlexWrapCSS =
@@ -54,7 +43,7 @@ type FlexWrapCSS =
       wrap?: never
       noWrap?: never
       wrapReverse?: never
-      flexWrap?: FlexWrapProperty
+      flexWrap?: Property.FlexWrap
     }
 
 type JustifyContentCSS =
@@ -74,7 +63,7 @@ type JustifyContentCSS =
       justifyCenter?: never
       justifySpaceBetween?: never
       justifySpaceAround?: never
-      justifyContent?: JustifyContentProperty
+      justifyContent?: Property.JustifyContent
     }
 
 type AlignItemsCSS =
@@ -94,7 +83,7 @@ type AlignItemsCSS =
       alignItemsCenter?: never
       alignItemsBaseline?: never
       alignItemsStretch?: never
-      alignItems?: AlignItemsProperty
+      alignItems?: Property.AlignItems
     }
 
 type AlignContentCSS =
@@ -116,37 +105,37 @@ type AlignContentCSS =
       alignContentSpaceBetween?: never
       alignContentSpaceAround?: never
       alignContentStretch?: never
-      alignContent?: AlignContentProperty
+      alignContent?: Property.AlignContent
     }
 
 type FlexFlowCSS = {
   // 'flex-flow'
-  flow?: FlexFlowProperty
+  flow?: Property.FlexFlow
 }
 
 type OrderCSS = {
   // 'order'
-  order?: GlobalsNumber
+  order?: Property.Order
 }
 
 type FlexGrowCSS = {
   // 'flex-grow'
-  grow?: GlobalsNumber
+  grow?: Property.FlexGrow
 }
 
 type FlexShrinkCSS = {
   // 'flex-shrink'
-  shrink?: GlobalsNumber
+  shrink?: Property.FlexShrink
 }
 
 type FlexBasisCSS = {
   // 'flex-basis'
-  basis?: FlexBasisProperty<string | 0>
+  basis?: Property.FlexBasis
 }
 
 type FlexCSS = {
   // 'flex'
-  flex?: FlexProperty<string | 0>
+  flex?: Property.Flex
 }
 
 type AlignSelfCSS =
@@ -168,7 +157,7 @@ type AlignSelfCSS =
       alignSelfCenter?: never
       alignSelfBaseline?: never
       alignSelfStretch?: never
-      alignSelf?: AlignSelfProperty
+      alignSelf?: Property.AlignSelf
     }
 
 export type FlexContainerProps = DivProps &

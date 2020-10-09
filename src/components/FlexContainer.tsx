@@ -1,12 +1,6 @@
 // Libraries
 import React from 'react'
-import type {
-  FlexDirectionProperty,
-  FlexWrapProperty,
-  JustifyContentProperty,
-  AlignItemsProperty,
-  AlignContentProperty,
-} from 'csstype'
+import type { Property } from 'csstype'
 
 // Helpers
 import { checkOverlapping } from '../helpers/overlapping'
@@ -82,7 +76,7 @@ function FlexContainer({
     if (flexDirection) return { flexDirection }
     // see if a specific value has been provided, first come first serve
     checkOverlapping('flex-direction', row, rowReverse, column, columnReverse)
-    let value: FlexDirectionProperty | null = null
+    let value: Property.FlexDirection | null = null
     if (row) value = 'row'
     else if (rowReverse) value = 'row-reverse'
     else if (column) value = 'column'
@@ -95,7 +89,7 @@ function FlexContainer({
     if (flexWrap) return { flexWrap }
     // see if a specific value has been provided, first come first serve
     checkOverlapping('flex-wrap', wrap, noWrap, wrapReverse)
-    let value: FlexWrapProperty | null = null
+    let value: Property.FlexWrap | null = null
     if (wrap) value = 'wrap'
     else if (noWrap) value = 'nowrap'
     else if (wrapReverse) value = 'wrap-reverse'
@@ -114,7 +108,7 @@ function FlexContainer({
       justifySpaceBetween,
       justifySpaceAround,
     )
-    let value: JustifyContentProperty | null = null
+    let value: Property.JustifyContent | null = null
     if (justifyStart) value = 'flex-start'
     else if (justifyEnd) value = 'flex-end'
     else if (justifyCenter) value = 'center'
@@ -135,7 +129,7 @@ function FlexContainer({
       alignItemsBaseline,
       alignItemsStretch,
     )
-    let value: AlignItemsProperty | null = null
+    let value: Property.AlignItems | null = null
     if (alignItemsStart) value = 'flex-start'
     else if (alignItemsEnd) value = 'flex-end'
     else if (alignItemsCenter) value = 'center'
@@ -157,7 +151,7 @@ function FlexContainer({
       alignContentSpaceAround,
       alignContentStretch,
     )
-    let value: AlignContentProperty | null = null
+    let value: Property.AlignContent | null = null
     if (alignContentStart) value = 'flex-start'
     else if (alignContentEnd) value = 'flex-end'
     else if (alignContentCenter) value = 'center'
