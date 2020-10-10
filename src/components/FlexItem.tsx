@@ -1,6 +1,6 @@
 // Libraries
 import React from 'react'
-import type { AlignSelfProperty } from 'csstype'
+import type { Property } from 'csstype'
 
 // Helpers
 import { checkOverlapping } from '../helpers/overlapping'
@@ -73,7 +73,7 @@ function FlexItem({
       alignSelfBaseline,
       alignSelfStretch,
     )
-    let value: AlignSelfProperty | null = null
+    let value: Property.AlignSelf | null = null
     if (alignSelfAuto) value = 'auto'
     else if (alignSelfStart) value = 'flex-start'
     else if (alignSelfEnd) value = 'flex-end'
