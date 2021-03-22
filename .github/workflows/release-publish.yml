@@ -1,4 +1,4 @@
-name: Release Publish
+name: Publish Release
 
 on:
   release:
