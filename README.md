@@ -2,7 +2,7 @@
 
 A thin wrapper to help make CSS Flexbox simpler and more expressive
 
-[![Build Status](https://travis-ci.org/bikk-uk/react-css-flex.svg?branch=master)](https://travis-ci.org/bikk-uk/react-css-flex)
+[![Build and Test](https://github.com/bikk-uk/react-css-flex/actions/workflows/build-test.yml/badge.svg?branch=master)](https://github.com/bikk-uk/react-css-flex/actions/workflows/build-test.yml)
 [![Coverage Status](https://coveralls.io/repos/github/bikk-uk/react-css-flex/badge.svg?branch=master)](https://coveralls.io/github/bikk-uk/react-css-flex?branch=master)
 [![react-css-test](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/hksco8/main&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/hksco8/runs)
 [![Known Vulnerabilities](https://snyk.io/test/github/bikk-uk/react-css-flex/badge.svg?targetFile=package.json)](https://snyk.io/test/github/bikk-uk/react-css-flex?targetFile=package.json)
