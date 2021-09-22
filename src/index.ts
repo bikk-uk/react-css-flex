@@ -138,6 +138,11 @@ type FlexCSS = {
   flex?: Property.Flex
 }
 
+type GapCSS = {
+  // 'gap'
+  gap?: Property.Gap
+}
+
 type AlignSelfCSS =
   | {
       // 'align-self' short
@@ -167,6 +172,7 @@ export type FlexContainerProps = DivProps &
   JustifyContentCSS &
   AlignItemsCSS &
   AlignContentCSS &
-  FlexFlowCSS
+  FlexFlowCSS &
+  GapCSS
 
 export type FlexItemProps = DivProps & OrderCSS & FlexGrowCSS & FlexShrinkCSS & FlexBasisCSS & FlexCSS & AlignSelfCSS
