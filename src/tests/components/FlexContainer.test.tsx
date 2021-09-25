@@ -87,8 +87,8 @@ describe('<FlexContainer /> - Inline', () => {
   })
 })
 
-describe('<FlexContainer gap="5px" />', () => {
-  it('renders a container with a gap', async () => {
+describe('<FlexContainer /> - gap', () => {
+  it('allows the gap value to be set', async () => {
     const component = <FlexContainer gap='5px' />
     const snapshot = `
 <div
