@@ -87,6 +87,18 @@ describe('<FlexContainer /> - Inline', () => {
   })
 })
 
+describe('<FlexContainer /> - gap', () => {
+  it('allows the gap value to be set', async () => {
+    const component = <FlexContainer gap='5px' />
+    const snapshot = `
+<div
+  style="display: flex; gap: 5px;"
+/>
+`
+    matchesSnapshot(component, snapshot)
+  })
+})
+
 describe('<FlexContainer /> - flex-direction', () => {
   it('allows flex-direction to be manually set', async () => {
     const component = <FlexContainer flexDirection='column' />

@@ -13,6 +13,9 @@ function FlexContainer({
   // 'display'
   inline,
 
+  // 'gap'
+  gap,
+
   // 'flex-direction' short
   row,
   rowReverse,
@@ -70,6 +73,10 @@ function FlexContainer({
     }),
     [inline],
   )
+
+  const gapStyle = React.useMemo((): React.CSSProperties => {
+    return gap !== undefined ? { gap } : {}
+  }, [gap])
 
   const flexDirectionStyle = React.useMemo((): React.CSSProperties => {
     // the manual version has been provided, that takes precedence
@@ -175,6 +182,7 @@ function FlexContainer({
 
   const combinedStyle = trimUndefined({
     ...displayStyle,
+    ...gapStyle,
     ...flexDirectionStyle,
     ...flexWrapStyle,
     ...justifyContentStyle,
