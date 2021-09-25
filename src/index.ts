@@ -143,6 +143,16 @@ type GapCSS = {
   gap?: Property.Gap
 }
 
+type RowGapCSS = {
+  // 'row-gap'
+  rowGap?: Property.RowGap
+}
+
+type ColumnGapCSS = {
+  // 'column-gap'
+  columnGap?: Property.ColumnGap
+}
+
 type AlignSelfCSS =
   | {
       // 'align-self' short
@@ -173,6 +183,8 @@ export type FlexContainerProps = DivProps &
   AlignItemsCSS &
   AlignContentCSS &
   FlexFlowCSS &
-  GapCSS
+  GapCSS &
+  RowGapCSS &
+  ColumnGapCSS
 
 export type FlexItemProps = DivProps & OrderCSS & FlexGrowCSS & FlexShrinkCSS & FlexBasisCSS & FlexCSS & AlignSelfCSS
