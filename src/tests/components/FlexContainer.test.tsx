@@ -99,6 +99,30 @@ describe('<FlexContainer /> - gap', () => {
   })
 })
 
+describe('<FlexContainer /> - row-gap', () => {
+  it('allows the row-gap value to be set', async () => {
+    const component = <FlexContainer rowGap='8px' />
+    const snapshot = `
+<div
+  style="display: flex; row-gap: 8px;"
+/>
+`
+    matchesSnapshot(component, snapshot)
+  })
+})
+
+describe('<FlexContainer /> - column-gap', () => {
+  it('allows the column-gap value to be set', async () => {
+    const component = <FlexContainer columnGap='20px' />
+    const snapshot = `
+<div
+  style="display: flex; column-gap: 20px;"
+/>
+`
+    matchesSnapshot(component, snapshot)
+  })
+})
+
 describe('<FlexContainer /> - flex-direction', () => {
   it('allows flex-direction to be manually set', async () => {
     const component = <FlexContainer flexDirection='column' />

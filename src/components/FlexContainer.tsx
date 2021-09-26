@@ -16,6 +16,12 @@ function FlexContainer({
   // 'gap'
   gap,
 
+  // 'row-gap'
+  rowGap,
+
+  // 'column-gap'
+  columnGap,
+
   // 'flex-direction' short
   row,
   rowReverse,
@@ -77,6 +83,14 @@ function FlexContainer({
   const gapStyle = React.useMemo((): React.CSSProperties => {
     return gap !== undefined ? { gap } : {}
   }, [gap])
+
+  const rowGapStyle = React.useMemo((): React.CSSProperties => {
+    return rowGap !== undefined ? { rowGap } : {}
+  }, [rowGap])
+
+  const columnGapStyle = React.useMemo((): React.CSSProperties => {
+    return columnGap !== undefined ? { columnGap } : {}
+  }, [columnGap])
 
   const flexDirectionStyle = React.useMemo((): React.CSSProperties => {
     // the manual version has been provided, that takes precedence
@@ -183,6 +197,8 @@ function FlexContainer({
   const combinedStyle = trimUndefined({
     ...displayStyle,
     ...gapStyle,
+    ...rowGapStyle,
+    ...columnGapStyle,
     ...flexDirectionStyle,
     ...flexWrapStyle,
     ...justifyContentStyle,
