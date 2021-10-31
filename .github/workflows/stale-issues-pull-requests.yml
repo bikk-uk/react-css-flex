@@ -1,0 +1,17 @@
+name: Stale issues and Pull Requests
+
+on:
+  schedule:
+    - cron: '00 06 * * *'
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v4
+        with:
+          exempt-draft-pr: true
+
+permissions:
+  issues: write
+  pull-requests: write
