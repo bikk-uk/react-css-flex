@@ -7,7 +7,7 @@ import { checkOverlapping } from '../helpers/overlapping'
 import { trimUndefined } from '../helpers/trim'
 
 // Types
-import type { FlexContainerProps } from '../index'
+import type { ContainerTags, FlexContainerProps } from "../index";
 
 function FlexContainer({
   // 'display'
@@ -67,6 +67,9 @@ function FlexContainer({
 
   // 'flex-flow'
   flow,
+
+  // tag name
+  as: tagName,
 
   // required
   style = {},
@@ -208,10 +211,11 @@ function FlexContainer({
     ...style,
   })
 
+  const Tag = (tagName ?? 'div') as keyof ContainerTags
   return (
-    <div style={combinedStyle} {...rest}>
+    <Tag style={combinedStyle} {...rest}>
       {children}
-    </div>
+    </Tag>
   )
 }
 

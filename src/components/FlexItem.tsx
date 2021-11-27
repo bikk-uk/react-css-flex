@@ -7,7 +7,7 @@ import { checkOverlapping } from '../helpers/overlapping'
 import { trimUndefined } from '../helpers/trim'
 
 // Types
-import type { FlexItemProps } from '../index'
+import type { ContainerTags, FlexItemProps } from "../index";
 
 function FlexItem({
   // 'order'
@@ -34,6 +34,9 @@ function FlexItem({
   alignSelfStretch,
   // 'align-self' manual
   alignSelf,
+
+  // tag name
+  as: tagName,
 
   // required
   style = {},
@@ -93,10 +96,11 @@ function FlexItem({
     ...style,
   })
 
+  const Tag = (tagName ?? 'div') as keyof ContainerTags
   return (
-    <div style={combinedStyle} {...rest}>
+    <Tag style={combinedStyle} {...rest}>
       {children}
-    </div>
+    </Tag>
   )
 }
 

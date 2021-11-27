@@ -1,7 +1,7 @@
 // Libraries
 import type { Property } from 'csstype'
 
-type DivProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+type ContainerProps<ContainerType> = React.DetailedHTMLProps<React.HTMLAttributes<ContainerType>, ContainerType>
 
 export interface IndexableCSS extends React.CSSProperties {
   [key: string]: string | number | undefined
@@ -153,6 +153,16 @@ type ColumnGapCSS = {
   columnGap?: Property.ColumnGap
 }
 
+export type ContainerTags = Pick<
+  JSX.IntrinsicElements,
+  'div' | 'nav' | 'main' | 'aside' | 'article' | 'header' | 'section' | 'footer'
+>
+
+type TagName = {
+  // as property for change default div to any html tags
+  as?: keyof ContainerTags
+}
+
 type AlignSelfCSS =
   | {
       // 'align-self' short
@@ -175,7 +185,7 @@ type AlignSelfCSS =
       alignSelf?: Property.AlignSelf
     }
 
-export type FlexContainerProps = DivProps &
+export type FlexContainerProps<ContainerType = HTMLDivElement> = ContainerProps<ContainerType> &
   DisplayCSS &
   FlexDirectionCSS &
   FlexWrapCSS &
@@ -185,6 +195,14 @@ export type FlexContainerProps = DivProps &
   FlexFlowCSS &
   GapCSS &
   RowGapCSS &
-  ColumnGapCSS
+  ColumnGapCSS &
+  TagName
 
-export type FlexItemProps = DivProps & OrderCSS & FlexGrowCSS & FlexShrinkCSS & FlexBasisCSS & FlexCSS & AlignSelfCSS
+export type FlexItemProps<ContainerType = HTMLDivElement> = ContainerProps<ContainerType> &
+  OrderCSS &
+  FlexGrowCSS &
+  FlexShrinkCSS &
+  FlexBasisCSS &
+  FlexCSS &
+  AlignSelfCSS &
+  TagName

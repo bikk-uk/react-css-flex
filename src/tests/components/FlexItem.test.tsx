@@ -17,6 +17,12 @@ describe('<FlexItem /> - General', () => {
     matchesSnapshot(component, snapshot)
   })
 
+  it('renders an empty flex item with tagName', async () => {
+    const component = <FlexItem as={'section'} />
+    const snapshot = `<section />`
+    matchesSnapshot(component, snapshot)
+  })
+
   it('applies custom style to the div', async () => {
     const component = (
       <FlexItem

@@ -21,6 +21,16 @@ describe('<FlexContainer /> - General', () => {
     matchesSnapshot(component, snapshot)
   })
 
+  it('renders an empty flex container with tagName', async () => {
+    const component = <FlexContainer as={'main'} />
+    const snapshot = `
+<main
+  style="display: flex;"
+/>
+`
+    matchesSnapshot(component, snapshot)
+  })
+
   it('applies custom style to the div', async () => {
     const component = (
       <FlexContainer
