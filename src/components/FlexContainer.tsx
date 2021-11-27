@@ -7,7 +7,7 @@ import { checkOverlapping } from '../helpers/overlapping'
 import { trimUndefined } from '../helpers/trim'
 
 // Types
-import type { ContainerTags, FlexContainerProps } from "../index";
+import type { FlexContainerProps, ContainerTags } from '../index'
 
 function FlexContainer({
   // 'display'
