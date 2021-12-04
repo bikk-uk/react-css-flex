@@ -26,7 +26,13 @@ import Flex from '@react-css/flex'
 
 ## Usage
 
-All components are `<div />`s with the React props fully exposed.
+All components are `<div />`s with the React props fully exposed. You can change what is rendered for both `<Flex />` and `<Flex.Item />` via the `as` prop:
+
+```tsx
+<Flex as='main'>
+  <MyComponent />
+</Flex>
+```
 
 ### Flex
 
@@ -299,6 +305,19 @@ CSS provided via `styles` will be applied last, this allows all generated CSS to
   </Flex.Item>
 </Flex>
 ```
+
+### Rendering as different elements
+
+If the `as` prop is not provided, it will default to a `<div />`. The supported `as` values are:
+
+- `div`
+- `nav`
+- `main`
+- `aside`
+- `article`
+- `header`
+- `section`
+- `footer`
 
 ### Limitations
 
