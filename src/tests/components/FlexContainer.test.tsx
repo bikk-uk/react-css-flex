@@ -21,6 +21,16 @@ describe('<FlexContainer /> - General', () => {
     matchesSnapshot(component, snapshot)
   })
 
+  it('renders an empty flex container with tagName', async () => {
+    const component = <FlexContainer as='main' />
+    const snapshot = `
+<main
+  style="display: flex;"
+/>
+`
+    matchesSnapshot(component, snapshot)
+  })
+
   it('applies custom style to the div', async () => {
     const component = (
       <FlexContainer
@@ -75,7 +85,99 @@ describe('<FlexContainer /> - General', () => {
   })
 })
 
-describe('<FlexContainer /> - Inline', () => {
+describe('<FlexContainer /> - as', () => {
+  it('defaults to rendering as a <div/>', async () => {
+    const component = <FlexContainer />
+    const snapshot = `
+<div
+  style="display: flex;"
+/>
+`
+    matchesSnapshot(component, snapshot)
+  })
+
+  it('renders explicitly as a <div/>', async () => {
+    const component = <FlexContainer as='div' />
+    const snapshot = `
+<div
+  style="display: flex;"
+/>
+`
+    matchesSnapshot(component, snapshot)
+  })
+
+  it('renders as a <nav/>', async () => {
+    const component = <FlexContainer as='nav' />
+    const snapshot = `
+<nav
+  style="display: flex;"
+/>
+`
+    matchesSnapshot(component, snapshot)
+  })
+
+  it('renders as a <main/>', async () => {
+    const component = <FlexContainer as='main' />
+    const snapshot = `
+<main
+  style="display: flex;"
+/>
+`
+    matchesSnapshot(component, snapshot)
+  })
+
+  it('renders as an <aside/>', async () => {
+    const component = <FlexContainer as='aside' />
+    const snapshot = `
+<aside
+  style="display: flex;"
+/>
+`
+    matchesSnapshot(component, snapshot)
+  })
+
+  it('renders as an <article/>', async () => {
+    const component = <FlexContainer as='article' />
+    const snapshot = `
+<article
+  style="display: flex;"
+/>
+`
+    matchesSnapshot(component, snapshot)
+  })
+
+  it('renders as a <header/>', async () => {
+    const component = <FlexContainer as='header' />
+    const snapshot = `
+<header
+  style="display: flex;"
+/>
+`
+    matchesSnapshot(component, snapshot)
+  })
+
+  it('renders as a <section/>', async () => {
+    const component = <FlexContainer as='section' />
+    const snapshot = `
+<section
+  style="display: flex;"
+/>
+`
+    matchesSnapshot(component, snapshot)
+  })
+
+  it('renders as a <footer/>', async () => {
+    const component = <FlexContainer as='footer' />
+    const snapshot = `
+<footer
+  style="display: flex;"
+/>
+`
+    matchesSnapshot(component, snapshot)
+  })
+})
+
+describe('<FlexContainer /> - inline', () => {
   it('renders an empty inline flex container', async () => {
     const component = <FlexContainer inline />
     const snapshot = `

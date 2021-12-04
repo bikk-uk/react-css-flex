@@ -17,6 +17,12 @@ describe('<FlexItem /> - General', () => {
     matchesSnapshot(component, snapshot)
   })
 
+  it('renders an empty flex item with tagName', async () => {
+    const component = <FlexItem as='section' />
+    const snapshot = `<section />`
+    matchesSnapshot(component, snapshot)
+  })
+
   it('applies custom style to the div', async () => {
     const component = (
       <FlexItem
@@ -51,6 +57,62 @@ describe('<FlexItem /> - General', () => {
 
     fireEvent.click(await findByTestId('flex-item'))
     expect(onClick).toHaveBeenCalled()
+  })
+})
+
+describe('<FlexItem /> - as', () => {
+  it('defaults to rendering as a <div/>', async () => {
+    const component = <FlexItem />
+    const snapshot = `<div />`
+    matchesSnapshot(component, snapshot)
+  })
+
+  it('renders explicitly as a <div/>', async () => {
+    const component = <FlexItem as='div' />
+    const snapshot = `<div />`
+    matchesSnapshot(component, snapshot)
+  })
+
+  it('renders as a <nav/>', async () => {
+    const component = <FlexItem as='nav' />
+    const snapshot = `<nav />`
+    matchesSnapshot(component, snapshot)
+  })
+
+  it('renders as a <main/>', async () => {
+    const component = <FlexItem as='main' />
+    const snapshot = `<main />`
+    matchesSnapshot(component, snapshot)
+  })
+
+  it('renders as an <aside/>', async () => {
+    const component = <FlexItem as='aside' />
+    const snapshot = `<aside />`
+    matchesSnapshot(component, snapshot)
+  })
+
+  it('renders as an <article/>', async () => {
+    const component = <FlexItem as='article' />
+    const snapshot = `<article />`
+    matchesSnapshot(component, snapshot)
+  })
+
+  it('renders as a <header/>', async () => {
+    const component = <FlexItem as='header' />
+    const snapshot = `<header />`
+    matchesSnapshot(component, snapshot)
+  })
+
+  it('renders as a <section/>', async () => {
+    const component = <FlexItem as='section' />
+    const snapshot = `<section />`
+    matchesSnapshot(component, snapshot)
+  })
+
+  it('renders as a <footer/>', async () => {
+    const component = <FlexItem as='footer' />
+    const snapshot = `<footer />`
+    matchesSnapshot(component, snapshot)
   })
 })
 

@@ -111,4 +111,34 @@ describe('<FlexWrapper />', () => {
 `
     matchesSnapshot(component, snapshot)
   })
+
+  it('renders a flex container with flex items, rendered as different tag names', async () => {
+    const component = (
+      <Flex as='main' column alignItemsCenter>
+        <Flex.Item as='section' alignSelfStretch>
+          Item 1
+        </Flex.Item>
+        <Flex.Item as='section' alignSelfStretch>
+          Item 2
+        </Flex.Item>
+      </Flex>
+    )
+    const snapshot = `
+<main
+  style="display: flex; flex-direction: column; align-items: center;"
+>
+  <section
+    style="align-self: stretch;"
+  >
+    Item 1
+  </section>
+  <section
+    style="align-self: stretch;"
+  >
+    Item 2
+  </section>
+</main>
+`
+    matchesSnapshot(component, snapshot)
+  })
 })
