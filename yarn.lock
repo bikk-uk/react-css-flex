@@ -642,10 +642,10 @@
   dependencies:
     "@sinonjs/commons" "^3.0.0"
 
-"@snyk/protect@^1.1177.0":
-  version "1.1177.0"
-  resolved "https://registry.yarnpkg.com/@snyk/protect/-/protect-1.1177.0.tgz#6a1e0f2282e95c25139ace4086653861c9a61ef3"
-  integrity sha512-hmwgWQTB+Fj+iQuL7jrup/qVJ+AI8txN6CqsvIAr/q7eMjccqkgs9kDIEan9UOPSWdZ0cGBlBzaQOEJgVTttmw==
+"@snyk/protect@^1.1193.0":
+  version "1.1193.0"
+  resolved "https://registry.yarnpkg.com/@snyk/protect/-/protect-1.1193.0.tgz#0b483e105a7a9ad1df8a3c2249d89374895cce76"
+  integrity sha512-/kNhccsKT5pWz/8rM7mpzalPFX8JArSkD+09HZJzDqV3VAQ78Jt3YE/jVkFtU+37J/OgsSAmcEqY1LcZxp/kwg==
 
 "@testing-library/dom@^9.0.0":
   version "9.3.0"
