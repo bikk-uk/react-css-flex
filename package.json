@@ -1,6 +1,6 @@
 {
   "name": "@react-css/flex",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "A thin wrapper to help make CSS Flexbox simpler and more expressive",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -40,8 +40,9 @@
   },
   "homepage": "https://github.com/bikk-uk/react-css-flex#readme",
   "devDependencies": {
-    "@snyk/protect": "^1.1177.0",
-    "@testing-library/react": "^14.0.0",
+    "@snyk/protect": "^1.1291.1",
+    "@testing-library/dom": "^10.1.0",
+    "@testing-library/react": "^16.0.0",
     "@types/jest": "^29.5.2",
     "@types/react": "^18.2.11",
     "@types/react-dom": "^18.2.4",
@@ -59,7 +60,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "ts-jest": "^29.1.0",
-    "typescript": "^4.7.4"
+    "typescript": "^5.4.5"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
